@@ -1,0 +1,24 @@
+name: "Build docs"
+
+on: [push, workflow_dispatch]
+
+jobs:
+  docs:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v4
+    - uses: actions/setup-python@v5
+      with:
+        python-version: '3.10' 
+    - name: Install dependencies
+      run: |
+        pip install numpydoc Sphinx sphinx-book-theme myst_nb .
+    - name: Build docs
+      run: sphinx-build docs/source docs/build
+    - name: Deploy documentation to GitHub Pages
+      uses: JamesIves/github-pages-deploy-action@v4
+      with:
+        branch: gh-pages                     # The branch the action should deploy to.
+        folder: docs/build                   # The folder the action should deploy.
+        git-config-name: Deployment Bot      # Name of the committer
+        git-config-email: deploy@github.com  # Email of the committer
