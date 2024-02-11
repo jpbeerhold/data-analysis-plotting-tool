@@ -99,23 +99,23 @@ class DataAnalysisPlottingTool:
 
             def _check_all() -> None:
                 # check if data for x-axis is exactly the same due to figure(x_axis_type="datetime")
-                # get very first mentioned data set and use first mentioned column
-                to_compare_with = self.collection_data_sets[all_names[0]][x_axis_label]
+                # get data set and use first mentioned column
+                to_compare_with: pd.Series = self.collection_data_sets[all_names[0]][x_axis_label]
                 for i in range(1, len(all_names)):
-                    current_very_first_mentioned = data_sets[all_names[i]][0]
-                    current_to_compare_with = self.collection_data_sets[all_names[i]][current_very_first_mentioned]
+                    current_very_first_mentioned: str = data_sets[all_names[i]][0] # 'date'
+                    current_to_compare_with: pd.Series = self.collection_data_sets[all_names[i]][current_very_first_mentioned]
                     if to_compare_with.to_list() != current_to_compare_with.to_list():
                         print(">>> ERROR: Columns mentioned for being on the x-axis must all be exactly the same.")
                         sys.exit()
 
-            def _get_data_set(name: str) -> tuple:
+            def _get_data_set(name: str):
                 nonlocal use_datetime
                 if name not in all_data_sets:
                     print(f'>>> ERROR: Data set "{name}" not found.')
                     sys.exit()
                 else:
-                    columns_to_use = data_sets[name]
-                    df = self.collection_data_sets[name][columns_to_use]
+                    columns_to_use: list = data_sets[name]
+                    df: pd.DataFrame = self.collection_data_sets[name][columns_to_use]
 
                     # add empty columns
                     for column in all_columns:
@@ -123,7 +123,7 @@ class DataAnalysisPlottingTool:
                             df[column] = np.nan
 
                     # convert to datetime
-                    to_x_axis = columns_to_use[0]
+                    to_x_axis: str = columns_to_use[0]
                     if self.__is_date(df.at[0, to_x_axis]):
                         df[to_x_axis] = pd.to_datetime(df[to_x_axis])
                         use_datetime = True
@@ -155,8 +155,8 @@ class DataAnalysisPlottingTool:
                 src = _get_data_set(name)
                 source.data.update(src.data)
 
-            all_names = sorted(data_sets.keys())
-            x_axis_label = data_sets[all_names[0]][0]
+            all_names: list = sorted(data_sets.keys()) # ['bangkok', 'paris']
+            x_axis_label: str = data_sets[all_names[0]][0] # 'date'
             all_columns = [i for l in data_sets.values() for i in l]
             all_data_sets = self.collection_data_sets.keys()
 

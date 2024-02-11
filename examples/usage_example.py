@@ -1,19 +1,19 @@
 # Data-Analysis-Plotting-Tool
 
-from data_analysis_plotting_tool.main import DataAnalysisPlottingTool
+from main import DataAnalysisPlottingTool
 
 
 ## Add data sets
 
 from os.path import dirname
 
-ept = DataAnalysisPlottingTool()
+dapt = DataAnalysisPlottingTool()
 
 ds1 = dirname(__file__)+'/../historical_weather_data/data/bangkok_2020-01-01_2024-01-27.csv'
 ds2 = ds1.replace('bangkok', 'paris')
 
-ept.add_data_set('bangkok', ds1)
-ept.add_data_set('paris', ds2)
+dapt.add_data_set('bangkok', ds1)
+dapt.add_data_set('paris', ds2)
 
 
 # Plot added data sets
@@ -23,4 +23,4 @@ data_sets_to_plot = {
     'paris': ['date', 'temperature_2m_max', 'temperature_2m_min']
 }
 
-ept.plot_interactive(data_sets_to_plot)
+dapt.plot_interactive(data_sets_to_plot)
