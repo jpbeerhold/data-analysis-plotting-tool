@@ -17,7 +17,7 @@ pd.options.mode.chained_assignment = None # disable warning
 
 
 
-class EasyPlottingTool:
+class DataAnalysisPlottingTool:
     """Tool to simplify data analysis and plotting."""
 
     def __init__(self) -> None:
@@ -84,8 +84,8 @@ class EasyPlottingTool:
         Parameters
         ----------
         dataset : dict
-            Specifies the data sets to use. First mentioned will be on x-axis.
-            Columns given as x-axis must be same in every data set.
+            Specifies the data sets and columns to use. First mentioned column will be on x-axis.
+            Columns specified as x-axis must be exactly the same.
                 Example:
                 {'berlin': ['date', 'rain_sum'], 'paris': ['date', 'temperature']}
 
@@ -99,26 +99,23 @@ class EasyPlottingTool:
 
             def _check_all() -> None:
                 # check if data for x-axis is exactly the same due to figure(x_axis_type="datetime")
-                # plot is not interchangeable
-
-                # get very first mentioned data set and use first mentioned column
-                very_first_mentioned = data_sets[all_names[0]][0]
-                to_compare_with = self.collection_data_sets[all_names[0]][very_first_mentioned]
+                # get data set and use first mentioned column
+                to_compare_with: pd.Series = self.collection_data_sets[all_names[0]][x_axis_label]
                 for i in range(1, len(all_names)):
-                    current_very_first_mentioned = data_sets[all_names[i]][0]
-                    current_to_compare_with = self.collection_data_sets[all_names[i]][current_very_first_mentioned]
+                    current_very_first_mentioned: str = data_sets[all_names[i]][0] # 'date'
+                    current_to_compare_with: pd.Series = self.collection_data_sets[all_names[i]][current_very_first_mentioned]
                     if to_compare_with.to_list() != current_to_compare_with.to_list():
                         print(">>> ERROR: Columns mentioned for being on the x-axis must all be exactly the same.")
                         sys.exit()
 
-            def _get_data_set(name: str) -> tuple:
+            def _get_data_set(name: str):
                 nonlocal use_datetime
                 if name not in all_data_sets:
                     print(f'>>> ERROR: Data set "{name}" not found.')
                     sys.exit()
                 else:
-                    columns_to_use = data_sets[name]
-                    df = self.collection_data_sets[name][columns_to_use]
+                    columns_to_use: list = data_sets[name]
+                    df: pd.DataFrame = self.collection_data_sets[name][columns_to_use]
 
                     # add empty columns
                     for column in all_columns:
@@ -126,7 +123,7 @@ class EasyPlottingTool:
                             df[column] = np.nan
 
                     # convert to datetime
-                    to_x_axis = columns_to_use[0]
+                    to_x_axis: str = columns_to_use[0]
                     if self.__is_date(df.at[0, to_x_axis]):
                         df[to_x_axis] = pd.to_datetime(df[to_x_axis])
                         use_datetime = True
@@ -136,17 +133,21 @@ class EasyPlottingTool:
                     return ColumnDataSource(data=df)
 
             def _make_plot():
+                # creates and returns Bokeh object
+                tools = "pan,wheel_zoom,box_zoom,reset,crosshair,save"
                 if use_datetime:
-                    plot = figure(x_axis_type="datetime")
+                    plot = figure(x_axis_type="datetime", tools=tools)
                 else:
-                    plot = figure()
+                    plot = figure(tools=tools)
+                # add mentioned columns as sources
                 for columns_to_use in data_sets.values():
                     for i in range(1, len(columns_to_use)):
                         plot.line(
                             x=columns_to_use[0],
                             y=columns_to_use[i],
                             source=source,
-                            color=self.__get_random_color_code())
+                            color=self.__get_random_color_code(),
+                            legend_label=columns_to_use[i])
                 return plot
 
             def _update_plot(attrname, old, new) -> None:
@@ -154,7 +155,8 @@ class EasyPlottingTool:
                 src = _get_data_set(name)
                 source.data.update(src.data)
 
-            all_names = sorted(data_sets.keys())
+            all_names: list = sorted(data_sets.keys()) # ['bangkok', 'paris']
+            x_axis_label: str = data_sets[all_names[0]][0] # 'date'
             all_columns = [i for l in data_sets.values() for i in l]
             all_data_sets = self.collection_data_sets.keys()
 
@@ -165,8 +167,10 @@ class EasyPlottingTool:
             source = _get_data_set(all_names[0])
             plot = _make_plot()
 
+            plot.xaxis.axis_label = x_axis_label
+
             data_set_select.on_change('value', _update_plot)
 
-            doc.add_root(layouts.row(plot, data_set_select))
+            doc.add_root(layouts.row(plot, data_set_select, sizing_mode='scale_both'))
 
         self.__start_local_bokeh_server(_bkapp)
