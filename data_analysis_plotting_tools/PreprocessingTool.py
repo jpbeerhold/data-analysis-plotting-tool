@@ -34,19 +34,21 @@ class PreprocessingTool:
         """
         self.data_set = data_set
     
-    def remove_columns(self, column_names: list[str]) -> None:
+    def remove_columns(self, columns_to_drop: list[str]) -> None:
         """
-        
+        Specify which columns to remove from the data set.
         
         Parameters
         ----------
-        
+        columns_to_drop : list[str]
+            List with names of the columns to be removed.
 
         Returns
         -------
-        
+        None.
 
         """
+        self.data_set.drop(columns=columns_to_drop, axis=1)
 
     def remove_outliers(self) -> None:
         """
