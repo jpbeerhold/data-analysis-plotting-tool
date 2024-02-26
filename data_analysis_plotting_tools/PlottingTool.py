@@ -1,5 +1,5 @@
 
-"""Tool to simplify data analysis and plotting."""
+"""Tool to simplify data plotting."""
 
 import sys
 import random
@@ -17,7 +17,7 @@ pd.options.mode.chained_assignment = None # disable warning
 
 
 
-class DataAnalysisPlottingTool:
+class PlottingTool:
     """Tool to simplify data analysis and plotting."""
 
     def __init__(self) -> None:
@@ -56,24 +56,24 @@ class DataAnalysisPlottingTool:
         except ValueError:
             return False
 
-    def add_data_set(self, name: str, path: str, disable_feedback: bool = False) -> None:
+    def add_data_set(self, name: str, data_set: pd.DataFrame, disable_feedback: bool = False) -> None:
         """
-        Add a dataset to be used later.
-        Dataset has to have columns with headers and must be in csv format.
+        Add a data set to be used later.
+        Data set has to have columns with headers and must be in csv format.
         
         Parameters
         ----------
         name : str
             Name to give the dataset.
-        path : str
-            Complete path to the file.
+        path : pd.DataFrame
+            Data set as pandas DataFrame.
 
         Returns
         -------
         None.
 
         """
-        self.collection_data_sets[name] = pd.read_csv(path)
+        self.collection_data_sets[name] = data_set
         if not disable_feedback:
             print(f'Data set "{name}" added!')
 
