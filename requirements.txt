@@ -6,3 +6,4 @@ Requests==2.31.0
 seaborn==0.11.2
 python-dateutil>=2.8.2
 bokeh>=3.3.3
+flit-core>=3.2

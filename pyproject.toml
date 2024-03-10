@@ -1,6 +1,11 @@
+[project]
+name = "data-analysis-plotting-tools"
+version = "0.0.1"
+description = "Tools to simplify data analysis and plotting."
+
 [build-system]
-requires = ["setuptools", "wheel"]
-build-backend = "setuptools.build_meta"
+build-backend = "flit_core.buildapi"
+requires = ["flit_core >=3.2,<4"]
 
 [tool.pytest.ini_options]
 testpaths = ["tests"]

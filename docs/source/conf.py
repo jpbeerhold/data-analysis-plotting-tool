@@ -6,7 +6,7 @@
 # -- Project information -----------------------------------------------------
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#project-information
 
-project = 'data-analysis-plotting-tool'
+project = 'data-analysis-plotting-tools'
 copyright = '2024, Ananya Pal, Jannis Philipp Beerhold'
 author = 'Ananya Pal, Jannis Philipp Beerhold'
 release = '0.0.1'
