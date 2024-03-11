@@ -7,3 +7,6 @@ seaborn==0.11.2
 python-dateutil>=2.8.2
 bokeh>=3.3.3
 flit-core>=3.2
+scikit-learn>=1.4
+statsmodels>=0.14.1
+pytest>=7.1.2

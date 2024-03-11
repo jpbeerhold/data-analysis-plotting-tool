@@ -1,3 +1,8 @@
+
+'''
+This script can be used to aquire weather data via the API by open-meteo.com
+'''
+
 import openmeteo_requests
 
 import requests_cache
