@@ -1,6 +1,4 @@
 
-"""Tool to simplify data plotting."""
-
 import sys
 import random
 import numpy as np
@@ -11,6 +9,11 @@ from bokeh.models import ColumnDataSource, DataRange1d, Select, Line, LinearAxis
 from bokeh.plotting import figure
 from bokeh.palettes import Blues4, Dark2_5
 from bokeh import layouts
+import seaborn as sns
+import matplotlib.pyplot as plt
+import statsmodels.api as sm
+from sklearn.model_selection import train_test_split
+from sklearn.metrics import mean_squared_error
 
 pd.options.mode.chained_assignment = None # disable warning
 
@@ -18,10 +21,7 @@ pd.options.mode.chained_assignment = None # disable warning
 
 
 class PlottingTool:
-    """Tool to simplify data analysis and plotting."""
-
-    def __init__(self) -> None:
-        self.collection_data_sets: dict[pd.DataFrame] = {}
+    """Tool to simplify data set plotting."""
 
     def __start_local_bokeh_server(self, bkapp) -> None:
         """
@@ -56,26 +56,26 @@ class PlottingTool:
         except ValueError:
             return False
 
-    def add_data_set(self, name: str, data_set: pd.DataFrame, disable_feedback: bool = False) -> None:
+    def add_data_set(self, data_set: pd.DataFrame, disable_feedback: bool = False) -> None:
         """
-        Add a data set to be used later.
-        Data set has to have columns with headers and must be in csv format.
+        Add a data set to be used.
         
         Parameters
         ----------
-        name : str
-            Name to give the dataset.
-        path : pd.DataFrame
+        data_set : pd.DataFrame
             Data set as pandas DataFrame.
+        disable_feedback : bool
+            Decide whether a confirmation message should be displayed or not.
 
         Returns
         -------
         None.
 
         """
-        self.collection_data_sets[name] = data_set
+        self.pandas_df = data_set
         if not disable_feedback:
-            print(f'Data set "{name}" added!')
+            print(f'Data set added!')
+            print(data_set.head())
 
     def plot_interactive(self, data_sets: dict) -> None:
         """
@@ -100,10 +100,10 @@ class PlottingTool:
             def _check_all() -> None:
                 # check if data for x-axis is exactly the same due to figure(x_axis_type="datetime")
                 # get data set and use first mentioned column
-                to_compare_with: pd.Series = self.collection_data_sets[all_names[0]][x_axis_label]
+                to_compare_with: pd.Series = self.pandas_df[all_names[0]][x_axis_label]
                 for i in range(1, len(all_names)):
                     current_very_first_mentioned: str = data_sets[all_names[i]][0] # 'date'
-                    current_to_compare_with: pd.Series = self.collection_data_sets[all_names[i]][current_very_first_mentioned]
+                    current_to_compare_with: pd.Series = self.pandas_df[all_names[i]][current_very_first_mentioned]
                     if to_compare_with.to_list() != current_to_compare_with.to_list():
                         print(">>> ERROR: Columns mentioned for being on the x-axis must all be exactly the same.")
                         sys.exit()
@@ -115,7 +115,7 @@ class PlottingTool:
                     sys.exit()
                 else:
                     columns_to_use: list = data_sets[name]
-                    df: pd.DataFrame = self.collection_data_sets[name][columns_to_use]
+                    df: pd.DataFrame = self.pandas_df[name][columns_to_use]
 
                     # add empty columns
                     for column in all_columns:
@@ -158,7 +158,7 @@ class PlottingTool:
             all_names: list = sorted(data_sets.keys()) # ['bangkok', 'paris']
             x_axis_label: str = data_sets[all_names[0]][0] # 'date'
             all_columns = [i for l in data_sets.values() for i in l]
-            all_data_sets = self.collection_data_sets.keys()
+            all_data_sets = self.pandas_df.keys()
 
             _check_all()
             data_set_select = Select(options=all_names)
@@ -174,3 +174,61 @@ class PlottingTool:
             doc.add_root(layouts.row(plot, data_set_select, sizing_mode='scale_both'))
 
         self.__start_local_bokeh_server(_bkapp)
+
+    def plot_univariate_graphs(self, number_columns_unvariate_graphs: int) -> None:
+        num_columns = self.pandas_df.select_dtypes(exclude='object').columns
+        nRows = len(num_columns) // number_columns_unvariate_graphs + 1
+        fig, axes = plt.subplots(nRows, number_columns_unvariate_graphs, figsize=(25, 25))
+        for ind, col in enumerate(num_columns):
+            sns.histplot(x=col, bins=15, data=self.pandas_df, ax=axes.flatten()[ind])
+        plt.show()
+
+    def plot_bivariate_graphs(self, numeric_variables: list[str]) -> None:
+        numeric_df = self.pandas_df[numeric_variables]
+        sns.PairGrid(numeric_df)
+        plt.show()
+
+    def plot_correlation_heatmap(self, numeric_variables: list[str]) -> None:
+        numeric_df = self.pandas_df[numeric_variables]
+        correlation_matrix = numeric_df.corr()
+        plt.figure(figsize=(12, 10))
+        sns.heatmap(correlation_matrix, annot=True, cmap='coolwarm', fmt=".2f", linewidths=0.5)
+        plt.title('Correlation Heatmap of Numeric Variables')
+        plt.show()
+
+    def get_regression_model_summary(self,
+                             target_variable: str,
+                             predictor_variables: list[str],
+                             disable_feedback: bool = False,
+                             disable_plotting: bool = False) -> None:
+
+        for col in predictor_variables:
+            if col not in self.pandas_df.columns:
+                print(f"Column '{col}' not found in the DataFrame.")
+
+        model_df = self.pandas_df[[target_variable] + predictor_variables]
+        train_data, test_data = train_test_split(model_df, test_size=0.2, random_state=42)
+        X_train = sm.add_constant(train_data[predictor_variables])
+        y_train = train_data[target_variable]
+        model = sm.OLS(y_train, X_train).fit()
+
+        if not disable_feedback:
+            print(model.summary())
+
+        X_test = sm.add_constant(test_data[predictor_variables])
+        y_pred = model.predict(X_test)
+        mse = mean_squared_error(test_data[target_variable], y_pred)
+        
+        if not disable_feedback:
+            print(f"\nMean Squared Error on Test Set: {mse}")
+
+        if not disable_plotting:
+            plt.scatter(test_data[target_variable], y_pred)
+            plt.xlabel('Actual Precipitation')
+            plt.ylabel('Predicted Precipitation')
+            plt.title('Actual vs. Predicted Precipitation')
+            plt.show()
+        
+        return model.summary()
+
+
