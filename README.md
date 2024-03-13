@@ -3,7 +3,7 @@
 [![License: MIT](https://img.shields.io/badge/License-MIT-red.svg)](https://opensource.org/licenses/MIT)
 
 # Data Analysis and Plotting Tools
-This repository contains a collection of tools and libraries for data analysis and visualization in Python.
+This repository contains a collection of tools and libraries for data set analysis and visualization in Python.
 
 ## Install
 Clone the repository:
