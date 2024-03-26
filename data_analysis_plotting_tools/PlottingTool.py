@@ -232,7 +232,7 @@ class PlottingTool:
 
         """
         numeric_df = self.all_data_sets[df_name][numeric_variables]
-        sns.PairGrid(numeric_df)
+        sns.pairplot(numeric_df)
         plt.show()
 
     def plot_correlation_heatmap(self,
