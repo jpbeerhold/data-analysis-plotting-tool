@@ -1,6 +1,7 @@
 ![Documentation](https://github.com/jpbeerhold/data-analysis-plotting-tools/actions/workflows/docs.yml/badge.svg)
 ![Tests](https://github.com/jpbeerhold/data-analysis-plotting-tools/actions/workflows/tests.yml/badge.svg)
 [![License: MIT](https://img.shields.io/badge/License-MIT-red.svg)](https://opensource.org/licenses/MIT)
+[![linting: pylint](https://img.shields.io/badge/linting-pylint-yellowgreen)](https://github.com/pylint-dev/pylint)
 
 # Data Analysis and Plotting Tools
 This repository contains a collection of tools and libraries for data set analysis and visualization in Python.
