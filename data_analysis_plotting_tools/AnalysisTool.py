@@ -1,4 +1,6 @@
+
 """Module to simplify data set analysis."""
+
 import pandas as pd
 
 pd.options.mode.chained_assignment = None # disable warning
@@ -17,10 +19,10 @@ class AnalysisTool:
         
         Parameters
         ----------
-        name : str
+        city_name : str
             Name to give the dataset.
-        path : str
-            Complete path to the file.
+        pandas_data_frame : pd.DataFrame
+            Pandas DataFrame to be analyzed.
 
         Returns
         -------
@@ -30,6 +32,12 @@ class AnalysisTool:
 
         self.city_name = city_name
         self.pandas_df = pandas_data_frame
+
+        self.columns_to_drop = None
+        self.columns_to_check = None
+
+        self.create_file = None
+        self.disable_feedback = None
 
     def preprocess_data_set(self,
                             columns_to_drop: list[str],
@@ -45,11 +53,14 @@ class AnalysisTool:
             Explanation here.
         columns_to_check : list[str]
             Explanation here.
+        create_file : bool
+            Whether to create a csv file of the preprocessed data set or not.
+        disable_feedback : bool
+            Whether to print feedbacks, like data set previews, into the console.
 
         Returns
         -------
-        dict.
-        Displays the dataframe after the requried columns have been dropped. 
+        None.
 
         """
 
@@ -76,25 +87,33 @@ class AnalysisTool:
             self.pandas_df.to_csv(f'{self.city_name}_cleaned_data.csv', index=False)
 
     def _remove_outliers(self) -> None:
+        """
+        Private Method.
+        Removes outliers in the data set.
+        """
 
         for column in self.columns_to_check:
-            Q1 = self.pandas_df[column].quantile(0.25)
-            Q3 = self.pandas_df[column].quantile(0.75)
-            IQR = Q3 - Q1
+            q1 = self.pandas_df[column].quantile(0.25)
+            q3 = self.pandas_df[column].quantile(0.75)
+            iqr = q3 - q1
 
-            outliers = self.pandas_df[(self.pandas_df[column] < Q1 - 1.5 * IQR) | (self.pandas_df[column] > Q3 + 1.5 * IQR)]
+            outliers = self.pandas_df[(self.pandas_df[column] < q1 - 1.5 * iqr) | (self.pandas_df[column] > q3 + 1.5 * iqr)]
 
             if not self.disable_feedback:
                 print(f"Outliers in '{column}':")
                 print(outliers[['date', column]])
 
-            self.pandas_df = self.pandas_df[~((self.pandas_df[column] < Q1 - 1.5 * IQR) | (self.pandas_df[column] > Q3 + 1.5 * IQR))]
+            self.pandas_df = self.pandas_df[~((self.pandas_df[column] < q1 - 1.5 * iqr) | (self.pandas_df[column] > q3 + 1.5 * iqr))]
 
         if not self.disable_feedback:
             print("After Fixing the Outliers:")
             print(self.pandas_df.head())
 
     def _fix_inconsistencies(self) -> None:
+        """
+        Private Method.
+        Fixes inconsistent values in the data set.
+        """
 
         missing_values_summary = self.pandas_df[self.columns_to_check].isnull().sum()
 
@@ -110,7 +129,7 @@ class AnalysisTool:
 
     def get_statistical_summary(self) -> pd.DataFrame:
         """
-        Statistical summary is presented after pre-processing the data. 
+        Returns a statistical summary of the preprocessed data set. 
         
         Parameters
         ----------
@@ -125,19 +144,15 @@ class AnalysisTool:
 
     def get_data_frame(self) -> pd.DataFrame:
         """
-        Explanation here.
+        Returns the preprocessed data set as pandas DataFrame.
         
         Parameters
         ----------
-        columns_to_drop : list[str]
-            Explanation here.
-        columns_to_check : list[str]
-            Explanation here.
+        None.
 
         Returns
         -------
-        dict.
-        Explanation here.
+        pandas DataFrame.
 
         """
         return self.pandas_df

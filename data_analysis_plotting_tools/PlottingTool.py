@@ -1,6 +1,9 @@
+
 """Module to plot the dataset."""
+
 import sys
 import random
+from threading import Thread
 import numpy as np
 import pandas as pd
 from dateutil.parser import parse
@@ -13,10 +16,8 @@ import matplotlib.pyplot as plt
 import statsmodels.api as sm
 from sklearn.model_selection import train_test_split
 from sklearn.metrics import mean_squared_error
-from threading import Thread
 
 pd.options.mode.chained_assignment = None # disable warning
-
 
 
 
@@ -84,7 +85,7 @@ class PlottingTool:
         """
         self.all_data_sets[df_name_declaration] = data_frame
         if not disable_feedback:
-            print(f'Data set added!')
+            print('Data set added!')
             print(data_frame.head())
 
     def plot_interactive(self,
@@ -190,19 +191,18 @@ class PlottingTool:
                                df_name: str,
                                number_columns_unvariate_graphs: int) -> None:
         """
-        Explanation here.
-        
+        Plot an univariate pairplot from the numeric variables in the data set.
+
         Parameters
         ----------
-        columns_to_drop : list[str]
-            Explanation here.
-        columns_to_check : list[str]
-            Explanation here.
+        df_name : str
+            Name of the data set to be plotted.
+        number_columns_unvariate_graphs : int
+            Decide on how many rows the plots should be displayed. 
 
         Returns
         -------
-        dict.
-        Explanation here.
+        None.
 
         """
         num_columns = self.all_data_sets[df_name].select_dtypes(exclude='object').columns
@@ -216,14 +216,14 @@ class PlottingTool:
                               df_name: str,
                               numeric_variables: list[str]) -> None:
         """
-        Plot a Bivariate Pairplot from the numeric variables in the dataset.
+        Plot a bivariate pairplot from the numeric variables in the data set.
         
         Parameters
         ----------
-        columns_to_drop : list[str]
-            Explanation here.
+        df_name : str
+            Name of the data set to be plotted.
         numeric_variables : list[str]
-            Choose numeric variables to plot by entering the name of the variable in the list. 
+            Choose numeric variables to plot by entering the name of the variable in the list.
 
         Returns
         -------
@@ -243,9 +243,9 @@ class PlottingTool:
         Parameters
         ----------
         df_name : str
-            Name of the dataset to be plotted.
+            Name of the data set to be plotted.
         numeric_variables : list[str]
-            Enter numeric variables to be plotted. 
+            Choose numeric variables to plot by entering the name of the variable in the list.
 
         Returns
         -------
@@ -271,11 +271,15 @@ class PlottingTool:
         Parameters
         ----------
         df_name : str
-            Name of the dataset to be plotted.
+            Name of the data set to be plotted.
         target_variable : str
-            Variable to be predicted. 
+            Variable to be predicted.
         predictor_variables : list[str]
-            Input variables on which the output would be based. 
+            Input variables on which the output would be based.
+        disable_feedback : bool
+            Whether to print feedbacks, like a model summary, into the console.
+        disable_plotting : bool
+            Whether the regression model should be plotted.
   
         Returns
         -------
@@ -289,15 +293,15 @@ class PlottingTool:
 
         model_df = self.all_data_sets[df_name][[target_variable] + predictor_variables]
         train_data, test_data = train_test_split(model_df, test_size=0.2, random_state=42)
-        X_train = sm.add_constant(train_data[predictor_variables])
+        x_train = sm.add_constant(train_data[predictor_variables])
         y_train = train_data[target_variable]
-        model = sm.OLS(y_train, X_train).fit()
+        model = sm.OLS(y_train, x_train).fit()
 
         if not disable_feedback:
             print(model.summary())
 
-        X_test = sm.add_constant(test_data[predictor_variables])
-        y_pred = model.predict(X_test)
+        x_test = sm.add_constant(test_data[predictor_variables])
+        y_pred = model.predict(x_test)
         mse = mean_squared_error(test_data[target_variable], y_pred)
 
         if not disable_feedback:
@@ -309,7 +313,5 @@ class PlottingTool:
             plt.ylabel('Predicted Precipitation')
             plt.title('Actual vs. Predicted Precipitation')
             plt.show()
-        
+
         return model.summary()
-
-
