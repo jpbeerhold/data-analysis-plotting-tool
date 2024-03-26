@@ -45,7 +45,9 @@ class PlottingTool:
         """
         return "#"+''.join([random.choice('ABCDEF0123456789') for i in range(6)])
 
-    def __is_date(self, string: str, fuzzy: bool = False):
+    def __is_date(self,
+                  string: str,
+                  fuzzy: bool = False):
         """
         Private Method.
         Return whether the string can be interpreted as a date.
@@ -61,7 +63,10 @@ class PlottingTool:
         except ValueError:
             return False
 
-    def add_data_set(self, df_name_declaration: str, data_frame: pd.DataFrame, disable_feedback: bool = False) -> None:
+    def add_data_set(self,
+                     df_name_declaration: str,
+                     data_frame: pd.DataFrame,
+                     disable_feedback: bool = False) -> None:
         """
         Add a data set to be used.
         
@@ -82,7 +87,8 @@ class PlottingTool:
             print(f'Data set added!')
             print(data_frame.head())
 
-    def plot_interactive(self, data_frames: dict) -> None:
+    def plot_interactive(self,
+                         data_frames: dict) -> None:
         """
         Plot data sets on a preset 2D interactive chart.
         
@@ -180,7 +186,25 @@ class PlottingTool:
 
         self.__start_local_bokeh_server(_bkapp)
 
-    def plot_univariate_graphs(self, df_name: str, number_columns_unvariate_graphs: int) -> None:
+    def plot_univariate_graphs(self,
+                               df_name: str,
+                               number_columns_unvariate_graphs: int) -> None:
+        """
+        Explanation here.
+        
+        Parameters
+        ----------
+        columns_to_drop : list[str]
+            Explanation here.
+        columns_to_check : list[str]
+            Explanation here.
+
+        Returns
+        -------
+        dict.
+        Explanation here.
+
+        """
         num_columns = self.all_data_sets[df_name].select_dtypes(exclude='object').columns
         nRows = len(num_columns) // number_columns_unvariate_graphs + 1
         fig, axes = plt.subplots(nRows, number_columns_unvariate_graphs, figsize=(25, 25))
@@ -188,12 +212,48 @@ class PlottingTool:
             sns.histplot(x=col, bins=15, data=self.all_data_sets[df_name], ax=axes.flatten()[ind])
         plt.show()
 
-    def plot_bivariate_graphs(self, df_name: str, numeric_variables: list[str]) -> None:
+    def plot_bivariate_graphs(self,
+                              df_name: str,
+                              numeric_variables: list[str]) -> None:
+        """
+        Explanation here.
+        
+        Parameters
+        ----------
+        columns_to_drop : list[str]
+            Explanation here.
+        columns_to_check : list[str]
+            Explanation here.
+
+        Returns
+        -------
+        dict.
+        Explanation here.
+
+        """
         numeric_df = self.all_data_sets[df_name][numeric_variables]
         sns.PairGrid(numeric_df)
         plt.show()
 
-    def plot_correlation_heatmap(self, df_name: str, numeric_variables: list[str]) -> None:
+    def plot_correlation_heatmap(self,
+                                 df_name: str,
+                                 numeric_variables: list[str]) -> None:
+        """
+        Explanation here.
+        
+        Parameters
+        ----------
+        columns_to_drop : list[str]
+            Explanation here.
+        columns_to_check : list[str]
+            Explanation here.
+
+        Returns
+        -------
+        dict.
+        Explanation here.
+
+        """
         numeric_df = self.all_data_sets[df_name][numeric_variables]
         correlation_matrix = numeric_df.corr()
         plt.figure(figsize=(12, 10))
@@ -207,6 +267,22 @@ class PlottingTool:
                                      predictor_variables: list[str],
                                      disable_feedback: bool = False,
                                      disable_plotting: bool = False) -> None:
+        """
+        Explanation here.
+        
+        Parameters
+        ----------
+        columns_to_drop : list[str]
+            Explanation here.
+        columns_to_check : list[str]
+            Explanation here.
+
+        Returns
+        -------
+        dict.
+        Explanation here.
+
+        """
 
         for col in predictor_variables:
             if col not in self.all_data_sets[df_name].columns:

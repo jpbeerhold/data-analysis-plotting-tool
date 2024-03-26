@@ -109,9 +109,41 @@ class AnalysisTool:
             print(self.pandas_df.head())
 
     def get_statistical_summary(self) -> pd.DataFrame:
+        """
+        Explanation here.
+        
+        Parameters
+        ----------
+        columns_to_drop : list[str]
+            Explanation here.
+        columns_to_check : list[str]
+            Explanation here.
+
+        Returns
+        -------
+        dict.
+        Explanation here.
+
+        """
         return self.pandas_df.describe(include='all')
 
     def get_data_frame(self) -> pd.DataFrame:
+        """
+        Explanation here.
+        
+        Parameters
+        ----------
+        columns_to_drop : list[str]
+            Explanation here.
+        columns_to_check : list[str]
+            Explanation here.
+
+        Returns
+        -------
+        dict.
+        Explanation here.
+
+        """
         return self.pandas_df
 
 

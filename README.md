@@ -23,7 +23,7 @@ python usage_example.py
 
 ## Usage
 The aim of the tools is to facilitate the general analysis of data sets and plotting.
-It's best to follow the documentaion on the website and the examples given.
+It's best to follow the documentation on the website and the examples given.
 
 ## Contributing
 No contribution is necessary. Feel free to fork.
