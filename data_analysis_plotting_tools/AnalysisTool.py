@@ -37,7 +37,7 @@ class AnalysisTool:
                             create_file: bool = False,
                             disable_feedback: bool = False) -> None:
         """
-        Process
+        Specify the columns to be dropped based on the statistical summary.
         
         Parameters
         ----------
@@ -49,7 +49,7 @@ class AnalysisTool:
         Returns
         -------
         dict.
-        Explanation here.
+        Displays the dataframe after the requried columns have been dropped. 
 
         """
 
@@ -110,20 +110,16 @@ class AnalysisTool:
 
     def get_statistical_summary(self) -> pd.DataFrame:
         """
-        Explanation here.
+        Statistical summary is presented after pre-processing the data. 
         
         Parameters
         ----------
-        columns_to_drop : list[str]
-            Explanation here.
-        columns_to_check : list[str]
-            Explanation here.
+        None.
 
         Returns
         -------
-        dict.
-        Explanation here.
-
+        pandas DataFrame.
+        
         """
         return self.pandas_df.describe(include='all')
 

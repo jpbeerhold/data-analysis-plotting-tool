@@ -216,19 +216,18 @@ class PlottingTool:
                               df_name: str,
                               numeric_variables: list[str]) -> None:
         """
-        Explanation here.
+        Plot a Bivariate Pairplot from the numeric variables in the dataset.
         
         Parameters
         ----------
         columns_to_drop : list[str]
             Explanation here.
-        columns_to_check : list[str]
-            Explanation here.
+        numeric_variables : list[str]
+            Choose numeric variables to plot by entering the name of the variable in the list. 
 
         Returns
         -------
-        dict.
-        Explanation here.
+        None. 
 
         """
         numeric_df = self.all_data_sets[df_name][numeric_variables]
@@ -239,19 +238,18 @@ class PlottingTool:
                                  df_name: str,
                                  numeric_variables: list[str]) -> None:
         """
-        Explanation here.
+        Plot a correlation heatmap using the numeric variables in the dataset. 
         
         Parameters
         ----------
-        columns_to_drop : list[str]
-            Explanation here.
-        columns_to_check : list[str]
-            Explanation here.
+        df_name : str
+            Name of the dataset to be plotted.
+        numeric_variables : list[str]
+            Enter numeric variables to be plotted. 
 
         Returns
         -------
-        dict.
-        Explanation here.
+        None.
 
         """
         numeric_df = self.all_data_sets[df_name][numeric_variables]
@@ -268,19 +266,20 @@ class PlottingTool:
                                      disable_feedback: bool = False,
                                      disable_plotting: bool = False) -> None:
         """
-        Explanation here.
+        Plot a regression model based on variables to be studied. 
         
         Parameters
         ----------
-        columns_to_drop : list[str]
-            Explanation here.
-        columns_to_check : list[str]
-            Explanation here.
-
+        df_name : str
+            Name of the dataset to be plotted.
+        target_variable : str
+            Variable to be predicted. 
+        predictor_variables : list[str]
+            Input variables on which the output would be based. 
+  
         Returns
         -------
-        dict.
-        Explanation here.
+        None.
 
         """
 
