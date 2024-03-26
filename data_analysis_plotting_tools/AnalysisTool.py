@@ -1,4 +1,4 @@
-
+"""Module to simplify data set analysis."""
 import pandas as pd
 
 pd.options.mode.chained_assignment = None # disable warning
@@ -58,10 +58,10 @@ class AnalysisTool:
 
         self.create_file = create_file
         self.disable_feedback = disable_feedback
-        
+
         if not self.disable_feedback:
             print(f"Processing data for {self.city_name}...")
-        
+
         self._clean_and_preprocess()
 
     def _clean_and_preprocess(self) -> None:
@@ -76,7 +76,7 @@ class AnalysisTool:
             self.pandas_df.to_csv(f'{self.city_name}_cleaned_data.csv', index=False)
 
     def _remove_outliers(self) -> None:
-        
+
         for column in self.columns_to_check:
             Q1 = self.pandas_df[column].quantile(0.25)
             Q3 = self.pandas_df[column].quantile(0.75)
@@ -141,5 +141,3 @@ class AnalysisTool:
 
         """
         return self.pandas_df
-
-
