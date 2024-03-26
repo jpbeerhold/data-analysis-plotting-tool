@@ -32,12 +32,12 @@ class AnalysisTool:
         self.pandas_df = pandas_data_frame
 
     def preprocess_data_set(self,
-                                columns_to_drop: list[str],
-                                columns_to_check: list[str],
-                                create_file: bool = False,
-                                disable_feedback: bool = False) -> None:
+                            columns_to_drop: list[str],
+                            columns_to_check: list[str],
+                            create_file: bool = False,
+                            disable_feedback: bool = False) -> None:
         """
-        Explanation here.
+        Process
         
         Parameters
         ----------
