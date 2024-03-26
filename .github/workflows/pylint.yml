@@ -20,5 +20,5 @@ jobs:
         badge-text: "PyLint"  # optional, default is PyLint
         color-bad-score: "red"  # optional, default is red
         color-ok-score: "orange"  # optional, default is orange
-        color-good-score: "yellow"  # optional, default is yellow
+        color-good-score: "brightgreen"  # optional, default is yellow
         color-perfect-score: "brightgreen"  # optional, default is brightgreen

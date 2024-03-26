@@ -27,7 +27,7 @@ The aim of the tools is to facilitate the general analysis of data sets and plot
 It's best to follow the documentation on the website and the examples given.
 
 ## Contributing
-No contribution is necessary. Feel free to fork.
+This project is not being actively developed. No contribution is necessary. Feel free to fork.
 
 ## License 
 MIT license is valid here.
