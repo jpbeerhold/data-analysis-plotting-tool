@@ -1,0 +1,22 @@
+name: PyLint with dynamic badge
+
+on: [workflow_dispatch]
+
+jobs:
+  lint:
+    name: PyLint with dynamic badge
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: PyLint with dynamic badge
+      uses: Silleellie/pylint-github-action@v2
+      with:
+        lint-path: "."  # The path, relative to the root of the repo, of the package(s) or python file(s) to lint
+        python-version: "3.x"  # Python version which will install all dependencies and lint package(s)
+        requirements-path: "requirements.txt"  # optional, default is requirements.txt
+        readme-path: "README.md"  # optional, default is README.md
+        badge-text: "PyLint"  # optional, default is PyLint
+        color-bad-score: "red"  # optional, default is red
+        color-ok-score: "orange"  # optional, default is orange
+        color-good-score: "yellow"  # optional, default is yellow
+        color-perfect-score: "brightgreen"  # optional, default is brightgreen
