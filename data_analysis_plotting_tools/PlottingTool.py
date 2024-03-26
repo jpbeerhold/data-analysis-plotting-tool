@@ -1,4 +1,4 @@
-
+"""Module to plot the dataset."""
 import sys
 import random
 import numpy as np
@@ -299,7 +299,7 @@ class PlottingTool:
         X_test = sm.add_constant(test_data[predictor_variables])
         y_pred = model.predict(X_test)
         mse = mean_squared_error(test_data[target_variable], y_pred)
-        
+
         if not disable_feedback:
             print(f"\nMean Squared Error on Test Set: {mse}")
 
