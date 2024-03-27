@@ -149,7 +149,7 @@
         <p aria-level="2" class="caption" role="heading"><span class="caption-text">Contents:</span></p>
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="../../index.html">Home</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../analysis_plotting_tools.html">Data Analysis Plotting Tools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../data_analysis_plotting_tools.html">Data Analysis Plotting Tools</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../notebooks/example.html">Example</a></li>
 </ul>
 
@@ -263,7 +263,7 @@ document.write(`
 
 
 
-<div class="viewcode-block" id="AnalysisTool"><a class="viewcode-back" href="../../analysis_plotting_tools.html#data_analysis_plotting_tools.AnalysisTool.AnalysisTool">[docs]</a><span class="k">class</span> <span class="nc">AnalysisTool</span><span class="p">:</span>
+<div class="viewcode-block" id="AnalysisTool"><a class="viewcode-back" href="../../data_analysis_plotting_tools.html#data_analysis_plotting_tools.AnalysisTool.AnalysisTool">[docs]</a><span class="k">class</span> <span class="nc">AnalysisTool</span><span class="p">:</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Tool to simplify data set analysis.&quot;&quot;&quot;</span>
 
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span>
@@ -293,7 +293,7 @@ document.write(`
         <span class="bp">self</span><span class="o">.</span><span class="n">create_file</span> <span class="o">=</span> <span class="kc">None</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">disable_feedback</span> <span class="o">=</span> <span class="kc">None</span>
 
-<div class="viewcode-block" id="AnalysisTool.preprocess_data_set"><a class="viewcode-back" href="../../analysis_plotting_tools.html#data_analysis_plotting_tools.AnalysisTool.AnalysisTool.preprocess_data_set">[docs]</a>    <span class="k">def</span> <span class="nf">preprocess_data_set</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span>
+<div class="viewcode-block" id="AnalysisTool.preprocess_data_set"><a class="viewcode-back" href="../../data_analysis_plotting_tools.html#data_analysis_plotting_tools.AnalysisTool.AnalysisTool.preprocess_data_set">[docs]</a>    <span class="k">def</span> <span class="nf">preprocess_data_set</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span>
                             <span class="n">columns_to_drop</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">str</span><span class="p">],</span>
                             <span class="n">columns_to_check</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">str</span><span class="p">],</span>
                             <span class="n">create_file</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
@@ -380,7 +380,7 @@ document.write(`
             <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">DataFrame after fixing missing values:&quot;</span><span class="p">)</span>
             <span class="nb">print</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">pandas_df</span><span class="o">.</span><span class="n">head</span><span class="p">())</span>
 
-<div class="viewcode-block" id="AnalysisTool.get_statistical_summary"><a class="viewcode-back" href="../../analysis_plotting_tools.html#data_analysis_plotting_tools.AnalysisTool.AnalysisTool.get_statistical_summary">[docs]</a>    <span class="k">def</span> <span class="nf">get_statistical_summary</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">:</span>
+<div class="viewcode-block" id="AnalysisTool.get_statistical_summary"><a class="viewcode-back" href="../../data_analysis_plotting_tools.html#data_analysis_plotting_tools.AnalysisTool.AnalysisTool.get_statistical_summary">[docs]</a>    <span class="k">def</span> <span class="nf">get_statistical_summary</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">:</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;Returns a statistical summary of the preprocessed data set. </span>
 <span class="sd">        </span>
 <span class="sd">        Parameters</span>
@@ -394,7 +394,7 @@ document.write(`
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">pandas_df</span><span class="o">.</span><span class="n">describe</span><span class="p">(</span><span class="n">include</span><span class="o">=</span><span class="s1">&#39;all&#39;</span><span class="p">)</span></div>
 
-<div class="viewcode-block" id="AnalysisTool.get_data_frame"><a class="viewcode-back" href="../../analysis_plotting_tools.html#data_analysis_plotting_tools.AnalysisTool.AnalysisTool.get_data_frame">[docs]</a>    <span class="k">def</span> <span class="nf">get_data_frame</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">:</span>
+<div class="viewcode-block" id="AnalysisTool.get_data_frame"><a class="viewcode-back" href="../../data_analysis_plotting_tools.html#data_analysis_plotting_tools.AnalysisTool.AnalysisTool.get_data_frame">[docs]</a>    <span class="k">def</span> <span class="nf">get_data_frame</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">:</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;Returns the preprocessed data set as pandas DataFrame.</span>
 <span class="sd">        </span>
 <span class="sd">        Parameters</span>
