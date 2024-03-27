@@ -45,7 +45,7 @@ nb_execution_mode = "off"
 html_sourcelink_suffix = ""
 
 import os, sys
-sys.path.insert(0, os.path.abspath(os.path.join('..', '..', 'src')))
+sys.path.insert(0, os.path.abspath(os.path.join('..', '..', 'data_analysis_plotting_tools')))
 suppress_warnings = [
     f"autosectionlabel._examples/{filename.split('.')[0]}"
     for filename in os.listdir("notebooks/")
