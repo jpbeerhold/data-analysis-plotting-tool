@@ -3,6 +3,15 @@
    You can adapt this file completely to your liking, but it should at least
    contain the root `toctree` directive.
 
+.. raw:: html
+
+    <style>
+    .small-header {
+        font-size: 0.8em; /* Ändere die Schriftgröße nach Bedarf */
+    }
+    </style>
+
+
 Welcome to Data Analysis Plotting Tools' documentation!
 =======================================================
 
