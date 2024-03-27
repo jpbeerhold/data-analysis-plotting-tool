@@ -19,7 +19,7 @@ release = '0.0.1'
 
 extensions = [
     "sphinx.ext.napoleon",
-    "sphinx.ext.autodoc",     # Support automatic documentation
+    "autoapi.extension",      # Support automatic documentation
     "sphinx.ext.coverage",    # Automatically check if functions are documented
     "sphinx.ext.mathjax",     # Allow support for algebra
     "sphinx.ext.viewcode",    # Include the source code in documentation
@@ -28,6 +28,7 @@ extensions = [
     "myst_nb",                # For compiling Jupyter Notebooks into high quality documentation formats  
 ]
 
+autoapi_dirs = ['../../data_analysis_plotting_tools']
 
 templates_path = ['_templates']
 exclude_patterns = []

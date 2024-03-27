@@ -10,3 +10,5 @@ flit-core>=3.2
 scikit-learn>=1.4
 statsmodels>=0.14.1
 pytest>=7.1.2
+sphinx>=7.2.6
+sphinx-autoapi>=3.0.0
