@@ -216,8 +216,8 @@ class PlottingTool:
 
         """
         num_columns = self.all_data_sets[df_name].select_dtypes(exclude='object').columns
-        nRows = len(num_columns) // number_columns_unvariate_graphs + 1
-        fig, axes = plt.subplots(nRows, number_columns_unvariate_graphs, figsize=(25, 25))
+        n_rows = len(num_columns) // number_columns_unvariate_graphs + 1
+        fig, axes = plt.subplots(n_rows, number_columns_unvariate_graphs, figsize=(25, 25))
         for ind, col in enumerate(num_columns):
             sns.histplot(x=col, bins=15, data=self.all_data_sets[df_name], ax=axes.flatten()[ind])
         plt.show()

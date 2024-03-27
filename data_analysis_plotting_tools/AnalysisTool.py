@@ -77,7 +77,7 @@ class AnalysisTool:
         Private Method.
         Cleans the data set.
         """
-        
+
         # Drop specified columns
         self.pandas_df.drop(columns=self.columns_to_drop, axis=1, inplace=True)
         # Remove outliers
