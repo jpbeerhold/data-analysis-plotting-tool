@@ -1,9 +1,8 @@
 
-
 <!DOCTYPE html>
 
 
-<html lang="en" data-content_root="" >
+<html lang="en" data-content_root="./" >
 
   <head>
     <meta charset="utf-8" />
@@ -29,8 +28,9 @@
 <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.1/webfonts/fa-brands-400.woff2" />
 <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.1/webfonts/fa-regular-400.woff2" />
 
-    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css" />
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=362ab14a" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=384b581d" />
+    <link rel="stylesheet" type="text/css" href="_static/graphviz.css?v=eafc0fe6" />
     <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
@@ -38,10 +38,10 @@
 <link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae" />
   <script src="_static/vendor/fontawesome/6.5.1/js/all.min.js?digest=8d27b9dea8ad943066ae"></script>
 
-    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
-    <script src="_static/doctools.js"></script>
-    <script src="_static/sphinx_highlight.js"></script>
-    <script src="_static/scripts/sphinx-book-theme.js"></script>
+    <script src="_static/documentation_options.js?v=e645c8fa"></script>
+    <script src="_static/doctools.js?v=888ff710"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?v=efea14e4"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'index';</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
@@ -153,6 +153,13 @@
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">Home</a></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="modules.html">API</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
 <li class="toctree-l2"><a class="reference internal" href="Bool.html">Bool</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="autoapi/index.html">API Reference</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="autoapi/data_analysis_plotting_tools/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">data_analysis_plotting_tools</span></code></a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="autoapi/data_analysis_plotting_tools/Bool/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">data_analysis_plotting_tools.Bool</span></code></a></li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>
@@ -333,7 +340,7 @@ document.write(`
                 <article class="bd-article">
                   
   <section id="welcome-to-data-analysis-plotting-tools-documentation">
-<h1>Welcome to Data Analysis Plotting Tools’ documentation!<a class="headerlink" href="#welcome-to-data-analysis-plotting-tools-documentation" title="Permalink to this heading">#</a></h1>
+<h1>Welcome to Data Analysis Plotting Tools’ documentation!<a class="headerlink" href="#welcome-to-data-analysis-plotting-tools-documentation" title="Link to this heading">#</a></h1>
 <div class="toctree-wrapper compound">
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Contents:</span></p>
 <ul class="current">
@@ -342,43 +349,47 @@ document.write(`
 <li class="toctree-l2"><a class="reference internal" href="Bool.html">Bool</a></li>
 </ul>
 </li>
+<li class="toctree-l1"><a class="reference internal" href="autoapi/index.html">API Reference</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="autoapi/data_analysis_plotting_tools/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">data_analysis_plotting_tools</span></code></a></li>
+</ul>
+</li>
 </ul>
 </div>
 </section>
 <section id="introduction">
-<h1>Introduction<a class="headerlink" href="#introduction" title="Permalink to this heading">#</a></h1>
+<h1>Introduction<a class="headerlink" href="#introduction" title="Link to this heading">#</a></h1>
 <section id="goal">
-<h2>Goal<a class="headerlink" href="#goal" title="Permalink to this heading">#</a></h2>
+<h2>Goal<a class="headerlink" href="#goal" title="Link to this heading">#</a></h2>
 <p>The primary objective of the Data Analysis Plotting Tools project is to provide a comprehensive set of tools for visualizing and analyzing data efficiently. By offering a range of plotting functionalities and data analysis utilities, the project aims to facilitate data exploration and interpretation for researchers, analysts, and developers.</p>
 </section>
 <section id="content">
-<h2>Content<a class="headerlink" href="#content" title="Permalink to this heading">#</a></h2>
+<h2>Content<a class="headerlink" href="#content" title="Link to this heading">#</a></h2>
 <p>The repository contains a collection of Python scripts, modules, and notebooks designed to streamline the process of data analysis and visualization. Key components of the project include:</p>
 <section id="analysis-modules">
-<h3>Analysis modules<a class="headerlink" href="#analysis-modules" title="Permalink to this heading">#</a></h3>
+<h3>Analysis modules<a class="headerlink" href="#analysis-modules" title="Link to this heading">#</a></h3>
 <p>In addition to plotting functionalities, the repository houses modules dedicated to data analysis. These modules are designed to facilitate various data manipulation and statistical analysis tasks. These analysis modules aim to assist users in deriving meaningful insights and patterns from the data through quantitative analysis techniques.</p>
 </section>
 <section id="plotting-modules">
-<h3>Plotting modules<a class="headerlink" href="#plotting-modules" title="Permalink to this heading">#</a></h3>
+<h3>Plotting modules<a class="headerlink" href="#plotting-modules" title="Link to this heading">#</a></h3>
 <p>The repository includes modules specifically focused on plotting data. These modules offer functions and utilities optimized for generating various types of plots, such as line plots, scatter plots, histograms, and more.</p>
 </section>
 </section>
 <section id="steps-taken">
-<h2>Steps taken<a class="headerlink" href="#steps-taken" title="Permalink to this heading">#</a></h2>
+<h2>Steps taken<a class="headerlink" href="#steps-taken" title="Link to this heading">#</a></h2>
 <section id="repository-setup">
-<h3>Repository Setup<a class="headerlink" href="#repository-setup" title="Permalink to this heading">#</a></h3>
+<h3>Repository Setup<a class="headerlink" href="#repository-setup" title="Link to this heading">#</a></h3>
 <p>The project began with the creation of the GitHub repository “data-analysis-plotting-tools,” where the initial project structure was established.</p>
 </section>
 <section id="tool-development">
-<h3>Tool Development<a class="headerlink" href="#tool-development" title="Permalink to this heading">#</a></h3>
+<h3>Tool Development<a class="headerlink" href="#tool-development" title="Link to this heading">#</a></h3>
 <p>The project progressed with the development of various data analysis and plotting tools. This involved writing Python scripts, modules, and utilities to address specific data-related tasks.</p>
 </section>
 <section id="testing-and-validation">
-<h3>Testing and Validation<a class="headerlink" href="#testing-and-validation" title="Permalink to this heading">#</a></h3>
+<h3>Testing and Validation<a class="headerlink" href="#testing-and-validation" title="Link to this heading">#</a></h3>
 <p>Throughout the development process, rigorous testing and validation were conducted to ensure the reliability and effectiveness of the tools.</p>
 </section>
 <section id="documentation">
-<h3>Documentation<a class="headerlink" href="#documentation" title="Permalink to this heading">#</a></h3>
+<h3>Documentation<a class="headerlink" href="#documentation" title="Link to this heading">#</a></h3>
 <p>Comprehensive documentation was created to guide users on how to install, configure, and utilize the tools effectively. This documentation includes API references and usage examples.</p>
 <ul class="simple">
 <li><p><a class="reference internal" href="genindex.html"><span class="std std-ref">Index</span></a></p></li>
