@@ -6,6 +6,10 @@
 # -- Project information -----------------------------------------------------
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#project-information
 
+import os, sys
+sys.path.insert(0, os.path.abspath(os.path.join('..', '..', 'data_analysis_plotting_tools')))
+# sys.path.insert(0, os.path.abspath(".."))
+
 project = 'data-analysis-plotting-tools'
 copyright = '2024, Ananya Pal, Jannis Philipp Beerhold'
 author = 'Ananya Pal, Jannis Philipp Beerhold'
@@ -35,7 +39,6 @@ exclude_patterns = []
 
 html_theme = 'sphinx_book_theme'
 html_title = 'Data Analysis Plotting Tools'
-html_static_path = ['_static']
 
 
 # do not execute jupyter notebooks when building docs
@@ -44,8 +47,6 @@ nb_execution_mode = "off"
 # download notebooks as .ipynb and not as .ipynb.txt
 html_sourcelink_suffix = ""
 
-import os, sys
-sys.path.insert(0, os.path.abspath(os.path.join('..', '..', 'data_analysis_plotting_tools')))
 suppress_warnings = [
     f"autosectionlabel._examples/{filename.split('.')[0]}"
     for filename in os.listdir("notebooks/")
