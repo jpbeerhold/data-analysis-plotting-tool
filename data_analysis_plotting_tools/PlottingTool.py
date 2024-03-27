@@ -25,13 +25,22 @@ class PlottingTool:
     """Tool to simplify data set plotting."""
 
     def __init__(self) -> None:
+        """Tool to simplify data set plotting.
+
+        Parameters
+        ----------
+        None.
+
+        Returns
+        -------
+        None.
+
+        """
         self.all_data_sets: dict[str, pd.DataFrame] = {}
 
     def __start_local_bokeh_server(self, bkapp) -> None:
-        """
-        Private Method.
-        Starts Bokeh to run in Browser.
-        """
+        # Private Method.
+        # Starts Bokeh to run in Browser.
         def _run():
             server = Server({'/': bkapp}, num_procs=1)
             server.start()
@@ -40,22 +49,18 @@ class PlottingTool:
         Thread(target=_run).start()
 
     def __get_random_color_code(self) -> str:
-        """
-        Private Method.
-        Returns random hexadecimal color code.
-        """
+        # Private Method.
+        # Returns random hexadecimal color code.
         return "#"+''.join([random.choice('ABCDEF0123456789') for i in range(6)])
 
     def __is_date(self,
                   string: str,
                   fuzzy: bool = False):
-        """
-        Private Method.
-        Return whether the string can be interpreted as a date.
+        # Private Method.
+        # Return whether the string can be interpreted as a date.
 
-        :param string: str, string to check for date
-        :param fuzzy: bool, ignore unknown tokens in string if True
-        """
+        # :param string: str, string to check for date
+        # :param fuzzy: bool, ignore unknown tokens in string if True
         try:
             if not isinstance(string, str):
                 return False
