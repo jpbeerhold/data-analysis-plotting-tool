@@ -68,8 +68,7 @@ class PlottingTool:
                      df_name: str,
                      data_frame: pd.DataFrame,
                      disable_feedback: bool = False) -> None:
-        """
-        Add a data set to be used.
+        """Add a data set to be used.
         
         Parameters
         ----------
@@ -92,8 +91,7 @@ class PlottingTool:
 
     def plot_interactive(self,
                          data_frames: dict) -> None:
-        """
-        Plot data sets on a preset 2D interactive chart.
+        """Plot data sets on a preset 2D interactive chart.
         
         Parameters
         ----------
@@ -192,8 +190,7 @@ class PlottingTool:
     def plot_univariate_graphs(self,
                                df_name: str,
                                number_columns_unvariate_graphs: int) -> None:
-        """
-        Plot an univariate pairplot from the numeric variables in the data set.
+        """Plot an univariate pairplot from the numeric variables in the data set.
 
         Parameters
         ----------
@@ -217,8 +214,7 @@ class PlottingTool:
     def plot_bivariate_graphs(self,
                               df_name: str,
                               numeric_variables: list[str]) -> None:
-        """
-        Plot a bivariate pairplot from the numeric variables in the data set.
+        """Plot a bivariate pairplot from the numeric variables in the data set.
         
         Parameters
         ----------
@@ -239,8 +235,7 @@ class PlottingTool:
     def plot_correlation_heatmap(self,
                                  df_name: str,
                                  numeric_variables: list[str]) -> None:
-        """
-        Plot a correlation heatmap using the numeric variables in the data set. 
+        """Plot a correlation heatmap using the numeric variables in the data set. 
         
         Parameters
         ----------
@@ -267,8 +262,7 @@ class PlottingTool:
                                      predictor_variables: list[str],
                                      disable_feedback: bool = False,
                                      disable_plotting: bool = False):
-        """
-        Plot a regression model based on variables to be studied. 
+        """Plot a regression model based on variables to be studied. 
         
         Parameters
         ----------

@@ -272,9 +272,7 @@ document.write(`
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span>
                  <span class="n">city_name</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
                  <span class="n">pandas_data_frame</span><span class="p">:</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">        Add a data set.</span>
-<span class="sd">        Input must be a pandas DataFrame.</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Add a data set. Input must be a pandas DataFrame.</span>
 <span class="sd">        </span>
 <span class="sd">        Parameters</span>
 <span class="sd">        ----------</span>
@@ -303,8 +301,7 @@ document.write(`
                             <span class="n">columns_to_check</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">str</span><span class="p">],</span>
                             <span class="n">create_file</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
                             <span class="n">disable_feedback</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">        Specify the columns to be dropped based on the statistical summary.</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Specify the columns to be dropped based on the statistical summary.</span>
 <span class="sd">        </span>
 <span class="sd">        Parameters</span>
 <span class="sd">        ----------</span>
@@ -387,8 +384,7 @@ document.write(`
             <span class="nb">print</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">pandas_df</span><span class="o">.</span><span class="n">head</span><span class="p">())</span>
 
 <div class="viewcode-block" id="AnalysisTool.get_statistical_summary"><a class="viewcode-back" href="../../analysis_plotting_tools.html#data_analysis_plotting_tools.AnalysisTool.AnalysisTool.get_statistical_summary">[docs]</a>    <span class="k">def</span> <span class="nf">get_statistical_summary</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">:</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">        Returns a statistical summary of the preprocessed data set. </span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Returns a statistical summary of the preprocessed data set. </span>
 <span class="sd">        </span>
 <span class="sd">        Parameters</span>
 <span class="sd">        ----------</span>
@@ -402,8 +398,7 @@ document.write(`
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">pandas_df</span><span class="o">.</span><span class="n">describe</span><span class="p">(</span><span class="n">include</span><span class="o">=</span><span class="s1">&#39;all&#39;</span><span class="p">)</span></div>
 
 <div class="viewcode-block" id="AnalysisTool.get_data_frame"><a class="viewcode-back" href="../../analysis_plotting_tools.html#data_analysis_plotting_tools.AnalysisTool.AnalysisTool.get_data_frame">[docs]</a>    <span class="k">def</span> <span class="nf">get_data_frame</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">:</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">        Returns the preprocessed data set as pandas DataFrame.</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Returns the preprocessed data set as pandas DataFrame.</span>
 <span class="sd">        </span>
 <span class="sd">        Parameters</span>
 <span class="sd">        ----------</span>

@@ -5,6 +5,7 @@
 
 
 
+
 Welcome to Data Analysis Plotting Tools' documentation!
 =======================================================
 
@@ -23,10 +24,11 @@ Introduction
 ============
 
 
+
+
 Goal
 ----
 The primary objective of the Data Analysis Plotting Tools project is to provide a comprehensive set of tools for visualizing and analyzing data efficiently. By offering a range of plotting functionalities and data analysis utilities, the project aims to facilitate data exploration and interpretation for researchers, analysts, and developers.
-
 
 
 
@@ -37,30 +39,11 @@ The repository contains a collection of Python scripts, modules, and notebooks d
 
 
 
-
-.. raw:: html
-
-    <style>
-    .small-header {
-        font-size: 0.6em;
-    }
-    </style>
-
 Analysis modules
 ~~~~~~~~~~~~~~~~
 
 In addition to plotting functionalities, the repository houses modules dedicated to data analysis. These modules are designed to facilitate various data manipulation and statistical analysis tasks. These analysis modules aim to assist users in deriving meaningful insights and patterns from the data through quantitative analysis techniques.
 
-
-
-
-.. raw:: html
-
-    <style>
-    .small-header {
-        font-size: 0.6em;
-    }
-    </style>
 
 Plotting modules
 ~~~~~~~~~~~~~~~~
@@ -75,30 +58,11 @@ Steps taken
 
 
 
-
-.. raw:: html
-
-    <style>
-    .small-header {
-        font-size: 0.6em;
-    }
-    </style>
-
 Repository Setup
 ~~~~~~~~~~~~~~~~
 
 The project began with the creation of the GitHub repository "data-analysis-plotting-tools," where the initial project structure was established.
 
-
-
-
-.. raw:: html
-
-    <style>
-    .small-header {
-        font-size: 0.6em;
-    }
-    </style>
 
 Tool Development
 ~~~~~~~~~~~~~~~~
@@ -106,31 +70,11 @@ Tool Development
 The project progressed with the development of various data analysis and plotting tools. This involved writing Python scripts, modules, and utilities to address specific data-related tasks.
 
 
-
-
-.. raw:: html
-
-    <style>
-    .small-header {
-        font-size: 0.6em;
-    }
-    </style>
-
 Testing and Validation
 ~~~~~~~~~~~~~~~~~~~~~~
 
 Throughout the development process, rigorous testing and validation were conducted to ensure the reliability and effectiveness of the tools.
 
-
-
-
-.. raw:: html
-
-    <style>
-    .small-header {
-        font-size: 0.6em;
-    }
-    </style>
 
 Documentation
 ~~~~~~~~~~~~~

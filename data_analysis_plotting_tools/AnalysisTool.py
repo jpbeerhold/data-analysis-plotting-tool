@@ -13,9 +13,7 @@ class AnalysisTool:
     def __init__(self,
                  city_name: str,
                  pandas_data_frame: pd.DataFrame) -> None:
-        """
-        Add a data set.
-        Input must be a pandas DataFrame.
+        """Add a data set. Input must be a pandas DataFrame.
         
         Parameters
         ----------
@@ -44,8 +42,7 @@ class AnalysisTool:
                             columns_to_check: list[str],
                             create_file: bool = False,
                             disable_feedback: bool = False) -> None:
-        """
-        Specify the columns to be dropped based on the statistical summary.
+        """Specify the columns to be dropped based on the statistical summary.
         
         Parameters
         ----------
@@ -128,8 +125,7 @@ class AnalysisTool:
             print(self.pandas_df.head())
 
     def get_statistical_summary(self) -> pd.DataFrame:
-        """
-        Returns a statistical summary of the preprocessed data set. 
+        """Returns a statistical summary of the preprocessed data set. 
         
         Parameters
         ----------
@@ -143,8 +139,7 @@ class AnalysisTool:
         return self.pandas_df.describe(include='all')
 
     def get_data_frame(self) -> pd.DataFrame:
-        """
-        Returns the preprocessed data set as pandas DataFrame.
+        """Returns the preprocessed data set as pandas DataFrame.
         
         Parameters
         ----------

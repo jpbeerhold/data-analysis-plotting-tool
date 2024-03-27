@@ -49,4 +49,4 @@ suppress_warnings = [
     if os.path.isfile(os.path.join("notebooks/", filename))
 ]  # Avoid duplicate label warnings for Jupyter notebooks.
 
-remove_from_toctrees = ["_autosummary/*"]
+# remove_from_toctrees = ["_autosummary/*"]
