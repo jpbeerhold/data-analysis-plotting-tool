@@ -7,7 +7,7 @@
 
     <style>
     .small-header {
-        font-size: 0.8em; /* Ändere die Schriftgröße nach Bedarf */
+        font-size: 0.6em; /* Ändere die Schriftgröße nach Bedarf */
     }
     </style>
 
