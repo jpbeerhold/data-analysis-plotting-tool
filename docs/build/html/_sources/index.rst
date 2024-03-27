@@ -25,9 +25,13 @@ Content
 -------
 The repository contains a collection of Python scripts, modules, and notebooks designed to streamline the process of data analysis and visualization. Key components of the project include:
 
+.. _small-header:
+
 Analysis modules
 ~~~~~~~~~~~~~~~~
 In addition to plotting functionalities, the repository houses modules dedicated to data analysis. These modules are designed to facilitate various data manipulation and statistical analysis tasks. These analysis modules aim to assist users in deriving meaningful insights and patterns from the data through quantitative analysis techniques.
+
+.. _small-header:
 
 Plotting modules
 ~~~~~~~~~~~~~~~~
@@ -36,17 +40,25 @@ The repository includes modules specifically focused on plotting data. These mod
 Steps taken
 -----------
 
+.. _small-header:
+
 Repository Setup
 ~~~~~~~~~~~~~~~~
 The project began with the creation of the GitHub repository "data-analysis-plotting-tools," where the initial project structure was established.
+
+.. _small-header:
 
 Tool Development
 ~~~~~~~~~~~~~~~~
 The project progressed with the development of various data analysis and plotting tools. This involved writing Python scripts, modules, and utilities to address specific data-related tasks.
 
+.. _small-header:
+
 Testing and Validation
 ~~~~~~~~~~~~~~~~~~~~~~
 Throughout the development process, rigorous testing and validation were conducted to ensure the reliability and effectiveness of the tools.
+
+.. _small-header:
 
 Documentation
 ~~~~~~~~~~~~~
