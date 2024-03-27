@@ -1,0 +1,632 @@
+
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
+
+    <title>Example on how to use AnalysisTool &amp; PlottingTool &#8212; Data Analysis Plotting Tools</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.5.1/css/all.min.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.1/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.1/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.1/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae" />
+  <script src="../_static/vendor/fontawesome/6.5.1/js/all.min.js?digest=8d27b9dea8ad943066ae"></script>
+
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/sphinx_highlight.js"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'notebooks/example';</script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a id="pst-skip-link" class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>
+    Back to top
+  </button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search..."
+         aria-label="Search..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+        
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+
+<a class="navbar-brand logo" href="../index.html">
+  
+  
+  
+  
+  
+  
+    <p class="title logo__title">Data Analysis Plotting Tools</p>
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn navbar-btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/notebooks/example.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Example on how to use AnalysisTool & PlottingTool</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#importing-tools">Importing tools</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#turn-data-sets-into-pandas-dataframes-and-preprocess-them">Turn data sets into pandas DataFrames and preprocess them</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#plot-preprocessed-data-sets">Plot preprocessed data sets</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section id="example-on-how-to-use-analysistool-plottingtool">
+<h1>Example on how to use AnalysisTool &amp; PlottingTool<a class="headerlink" href="#example-on-how-to-use-analysistool-plottingtool" title="Permalink to this heading">#</a></h1>
+<section id="importing-tools">
+<h2>Importing tools<a class="headerlink" href="#importing-tools" title="Permalink to this heading">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Using the pandas module is mandatory</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">from</span> <span class="nn">data_analysis_plotting_tools.AnalysisTool</span> <span class="kn">import</span> <span class="n">AnalysisTool</span>
+<span class="kn">from</span> <span class="nn">data_analysis_plotting_tools.PlottingTool</span> <span class="kn">import</span> <span class="n">PlottingTool</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="turn-data-sets-into-pandas-dataframes-and-preprocess-them">
+<h2>Turn data sets into pandas DataFrames and preprocess them<a class="headerlink" href="#turn-data-sets-into-pandas-dataframes-and-preprocess-them" title="Permalink to this heading">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Convert Berlin data set to pandas DataFrame</span>
+<span class="n">df_berlin</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;berlin_2020-01-01_2024-01-27.csv&#39;</span><span class="p">)</span>
+
+
+<span class="c1"># Create object</span>
+<span class="n">df_name_berlin</span> <span class="o">=</span> <span class="s1">&#39;berlin&#39;</span>
+<span class="n">analysis_tool</span> <span class="o">=</span> <span class="n">AnalysisTool</span><span class="p">(</span><span class="n">df_name_berlin</span><span class="p">,</span> <span class="n">df_berlin</span><span class="p">)</span>
+
+
+<span class="c1"># Decide which columns NOT to use</span>
+<span class="n">columns_to_drop</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;Unnamed: 0&#39;</span><span class="p">,</span>
+                   <span class="s1">&#39;temperature_2m_mean&#39;</span><span class="p">,</span>
+                   <span class="s1">&#39;apparent_temperature_max&#39;</span><span class="p">,</span>
+                   <span class="s1">&#39;apparent_temperature_min&#39;</span><span class="p">,</span>
+                   <span class="s1">&#39;sunrise&#39;</span><span class="p">,</span> 
+                   <span class="s1">&#39;sunset&#39;</span><span class="p">,</span> 
+                   <span class="s1">&#39;wind_speed_10m_max&#39;</span><span class="p">,</span> 
+                   <span class="s1">&#39;wind_gusts_10m_max&#39;</span><span class="p">,</span> 
+                   <span class="s1">&#39;wind_direction_10m_dominant&#39;</span><span class="p">,</span> 
+                   <span class="s1">&#39;shortwave_radiation_sum&#39;</span><span class="p">,</span> 
+                   <span class="s1">&#39;et0_fao_evapotranspiration&#39;</span><span class="p">]</span>
+
+
+<span class="c1"># Decide which columns to use</span>
+<span class="n">columns_to_check</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;weather_code&#39;</span><span class="p">,</span> 
+                    <span class="s1">&#39;temperature_2m_max&#39;</span><span class="p">,</span> 
+                    <span class="s1">&#39;temperature_2m_min&#39;</span><span class="p">,</span> 
+                    <span class="s1">&#39;apparent_temperature_mean&#39;</span><span class="p">,</span>
+                    <span class="s1">&#39;daylight_duration&#39;</span><span class="p">,</span> 
+                    <span class="s1">&#39;sunshine_duration&#39;</span><span class="p">,</span> 
+                    <span class="s1">&#39;precipitation_sum&#39;</span><span class="p">,</span> 
+                    <span class="s1">&#39;rain_sum&#39;</span><span class="p">,</span> 
+                    <span class="s1">&#39;snowfall_sum&#39;</span><span class="p">,</span>
+                    <span class="s1">&#39;precipitation_hours&#39;</span><span class="p">]</span>
+
+
+<span class="c1"># Preprocess the data set to be used for plotting later</span>
+<span class="n">analysis_tool</span><span class="o">.</span><span class="n">preprocess_data_set</span><span class="p">(</span><span class="n">columns_to_drop</span><span class="p">,</span> <span class="n">columns_to_check</span><span class="p">,</span> <span class="n">disable_feedback</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+
+<span class="n">preprocessed_df</span> <span class="o">=</span> <span class="n">analysis_tool</span><span class="o">.</span><span class="n">get_data_frame</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">preprocessed_df</span><span class="p">)</span>
+
+
+<span class="n">summary</span> <span class="o">=</span> <span class="n">analysis_tool</span><span class="o">.</span><span class="n">get_statistical_summary</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">summary</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>            date  weather_code  temperature_2m_max  temperature_2m_min  \
+0     2020-01-01           2.0              4.0585             -2.8915   
+1     2020-01-02           3.0              5.3085             -3.6915   
+4     2020-01-05           3.0              3.7585             -1.8415   
+5     2020-01-06           3.0              5.1085              0.7085   
+6     2020-01-07           3.0              5.1085             -1.2415   
+...          ...           ...                 ...                 ...   
+1480  2024-01-20           3.0              3.0585             -3.2415   
+1481  2024-01-21           3.0              3.0585             -4.7915   
+1483  2024-01-23          51.0              7.5585              2.5085   
+1485  2024-01-25          51.0              8.3585              4.4085   
+1487  2024-01-27           3.0              6.7585              1.2085   
+
+      apparent_temperature_mean  daylight_duration  sunshine_duration  \
+0                     -2.819745          27887.553         22130.1330   
+1                     -4.523237          27961.896         22598.5250   
+4                     -2.688207          28221.395         22702.1860   
+5                     -0.102798          28319.473             0.0000   
+6                     -1.173500          28423.040          3600.0000   
+...                         ...                ...                ...   
+1480                  -5.091831          30236.890         18846.2600   
+1481                  -6.437049          30411.797          2035.1797   
+1483                  -0.621952          30773.158         15802.5350   
+1485                   0.946923          31148.040         26011.0200   
+1487                  -0.677743          31534.256          7207.6157   
+
+      precipitation_sum  rain_sum  snowfall_sum  precipitation_hours  
+0                   0.0       0.0           0.0                  0.0  
+1                   0.0       0.0           0.0                  0.0  
+4                   0.0       0.0           0.0                  0.0  
+5                   0.0       0.0           0.0                  0.0  
+6                   0.0       0.0           0.0                  0.0  
+...                 ...       ...           ...                  ...  
+1480                0.0       0.0           0.0                  0.0  
+1481                0.0       0.0           0.0                  0.0  
+1483                0.5       0.5           0.0                  2.0  
+1485                0.2       0.2           0.0                  2.0  
+1487                0.0       0.0           0.0                  0.0  
+
+[963 rows x 11 columns]
+              date  weather_code  temperature_2m_max  temperature_2m_min  \
+count          963    963.000000          963.000000          963.000000   
+unique         963           NaN                 NaN                 NaN   
+top     2020-01-01           NaN                 NaN                 NaN   
+freq             1           NaN                 NaN                 NaN   
+mean           NaN     21.663551           16.035499            7.068002   
+std            NaN     24.046408            8.660004            6.808220   
+min            NaN      0.000000           -4.191500          -14.541500   
+25%            NaN      3.000000            8.883501            1.958500   
+50%            NaN      3.000000           16.508501            7.008500   
+75%            NaN     51.000000           22.658500           12.683501   
+max            NaN     61.000000           37.708500           22.308500   
+
+        apparent_temperature_mean  daylight_duration  sunshine_duration  \
+count                  963.000000         963.000000         963.000000   
+unique                        NaN                NaN                NaN   
+top                           NaN                NaN                NaN   
+freq                          NaN                NaN                NaN   
+mean                     9.150490       45335.121341       31953.768855   
+std                      9.040134       11174.289990       15907.667243   
+min                    -15.024669       27518.596000           0.000000   
+25%                      1.876202       35060.343000       21500.764500   
+50%                      9.109134       46072.094000       34625.380000   
+75%                     16.458306       56002.898500       45205.894500   
+max                     29.584272       60620.176000       55586.050000   
+
+        precipitation_sum    rain_sum  snowfall_sum  precipitation_hours  
+count          963.000000  963.000000         963.0           963.000000  
+unique                NaN         NaN           NaN                  NaN  
+top                   NaN         NaN           NaN                  NaN  
+freq                  NaN         NaN           NaN                  NaN  
+mean             0.191900    0.191900           0.0             0.993769  
+std              0.360983    0.360983           0.0             1.486587  
+min              0.000000    0.000000           0.0             0.000000  
+25%              0.000000    0.000000           0.0             0.000000  
+50%              0.000000    0.000000           0.0             0.000000  
+75%              0.200000    0.200000           0.0             2.000000  
+max              2.000000    2.000000           0.0             5.000000  
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="plot-preprocessed-data-sets">
+<h2>Plot preprocessed data sets<a class="headerlink" href="#plot-preprocessed-data-sets" title="Permalink to this heading">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Create object</span>
+<span class="n">plotting_tool</span> <span class="o">=</span> <span class="n">PlottingTool</span><span class="p">()</span>
+
+
+<span class="c1"># Add preprocessed pandas DataFrame from before</span>
+<span class="n">plotting_tool</span><span class="o">.</span><span class="n">add_data_set</span><span class="p">(</span><span class="n">df_name_berlin</span><span class="p">,</span> <span class="n">preprocessed_df</span><span class="p">,</span> <span class="n">disable_feedback</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+<span class="c1"># Add a second time for plotting</span>
+<span class="n">df_name_berlin_2</span> <span class="o">=</span> <span class="n">df_name_berlin</span><span class="o">+</span><span class="s1">&#39;_2&#39;</span>
+<span class="n">plotting_tool</span><span class="o">.</span><span class="n">add_data_set</span><span class="p">(</span><span class="n">df_name_berlin_2</span><span class="p">,</span> <span class="n">preprocessed_df</span><span class="p">,</span> <span class="n">disable_feedback</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+<span class="c1">## Plot added pandas DataFrames in various ways</span>
+
+<span class="n">plotting_tool</span><span class="o">.</span><span class="n">plot_interactive</span><span class="p">({</span>
+    <span class="n">df_name_berlin</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;date&#39;</span><span class="p">,</span> <span class="s1">&#39;temperature_2m_max&#39;</span><span class="p">],</span>
+    <span class="n">df_name_berlin_2</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;date&#39;</span><span class="p">,</span> <span class="s1">&#39;rain_sum&#39;</span><span class="p">]})</span>
+
+<span class="n">plotting_tool</span><span class="o">.</span><span class="n">plot_univariate_graphs</span><span class="p">(</span><span class="n">df_name_berlin</span><span class="p">,</span> <span class="n">number_columns_unvariate_graphs</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
+
+
+<span class="c1"># In this example the columns used for plotting bivariate graphs</span>
+<span class="c1"># are the same as the ones to keep</span>
+<span class="n">plotting_tool</span><span class="o">.</span><span class="n">plot_bivariate_graphs</span><span class="p">(</span><span class="n">df_name_berlin</span><span class="p">,</span> <span class="n">numeric_variables</span><span class="o">=</span><span class="n">columns_to_check</span><span class="p">)</span>
+
+<span class="n">plotting_tool</span><span class="o">.</span><span class="n">plot_correlation_heatmap</span><span class="p">(</span><span class="n">df_name_berlin</span><span class="p">,</span> <span class="n">numeric_variables</span><span class="o">=</span><span class="n">columns_to_check</span><span class="p">)</span>
+
+
+<span class="c1"># Create a regression model </span>
+
+<span class="n">target_variable</span> <span class="o">=</span> <span class="s1">&#39;precipitation_sum&#39;</span>
+
+<span class="n">predictor_variables</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;temperature_2m_max&#39;</span><span class="p">,</span> 
+                       <span class="s1">&#39;temperature_2m_min&#39;</span><span class="p">,</span> 
+                       <span class="s1">&#39;daylight_duration&#39;</span><span class="p">]</span>
+
+<span class="n">regression_model_summary</span> <span class="o">=</span> <span class="n">plotting_tool</span><span class="o">.</span><span class="n">get_regression_model_summary</span><span class="p">(</span><span class="n">df_name_berlin</span><span class="p">,</span> <span class="n">target_variable</span><span class="p">,</span> <span class="n">predictor_variables</span><span class="p">,</span> <span class="n">disable_feedback</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">regression_model_summary</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/a01513678fc2a1dc036102f2a8ba6e281dc3937855cde24e05cfa9db8a167c2d.png" src="../_images/a01513678fc2a1dc036102f2a8ba6e281dc3937855cde24e05cfa9db8a167c2d.png" />
+<img alt="../_images/db307bd8ea2fa122646b48e8f4ebcc903cb3b64dca3a90eef33cb4a9cf06f8fe.png" src="../_images/db307bd8ea2fa122646b48e8f4ebcc903cb3b64dca3a90eef33cb4a9cf06f8fe.png" />
+<img alt="../_images/2d9eb16783235c99d3d005f70893fbd76e815dacf14d0ed21cceca1eb4ad8655.png" src="../_images/2d9eb16783235c99d3d005f70893fbd76e815dacf14d0ed21cceca1eb4ad8655.png" />
+<img alt="../_images/cdfb3e7c15f8d712b8cc4a7a11e8d3c1054f5aab1394b469b2867e09e6dc78ca.png" src="../_images/cdfb3e7c15f8d712b8cc4a7a11e8d3c1054f5aab1394b469b2867e09e6dc78ca.png" />
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>                            OLS Regression Results                            
+==============================================================================
+Dep. Variable:      precipitation_sum   R-squared:                       0.098
+Model:                            OLS   Adj. R-squared:                  0.094
+Method:                 Least Squares   F-statistic:                     27.69
+Date:                Wed, 27 Mar 2024   Prob (F-statistic):           5.21e-17
+Time:                        12:08:04   Log-Likelihood:                -263.90
+No. Observations:                 770   AIC:                             535.8
+Df Residuals:                     766   BIC:                             554.4
+Df Model:                           3                                         
+Covariance Type:            nonrobust                                         
+======================================================================================
+                         coef    std err          t      P&gt;|t|      [0.025      0.975]
+--------------------------------------------------------------------------------------
+const                  0.2464      0.059      4.189      0.000       0.131       0.362
+temperature_2m_max    -0.0347      0.005     -7.488      0.000      -0.044      -0.026
+temperature_2m_min     0.0438      0.005      9.059      0.000       0.034       0.053
+daylight_duration   4.189e-06   1.88e-06      2.232      0.026    5.05e-07    7.87e-06
+==============================================================================
+Omnibus:                      393.491   Durbin-Watson:                   1.990
+Prob(Omnibus):                  0.000   Jarque-Bera (JB):             2061.167
+Skew:                           2.369   Prob(JB):                         0.00
+Kurtosis:                       9.465   Cond. No.                     2.22e+05
+==============================================================================
+
+Notes:
+[1] Standard Errors assume that the covariance matrix of the errors is correctly specified.
+[2] The condition number is large, 2.22e+05. This might indicate that there are
+strong multicollinearity or other numerical problems.
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer">
+                  
+<div class="prev-next-area">
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#importing-tools">Importing tools</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#turn-data-sets-into-pandas-dataframes-and-preprocess-them">Turn data sets into pandas DataFrames and preprocess them</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#plot-preprocessed-data-sets">Plot preprocessed data sets</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Ananya Pal, Jannis Philipp Beerhold
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2024, Ananya Pal, Jannis Philipp Beerhold.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

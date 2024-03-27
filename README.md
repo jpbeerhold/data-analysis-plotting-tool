@@ -4,7 +4,8 @@
 ![pylint](https://img.shields.io/badge/PyLint-9.24-brightgreen?logo=python&logoColor=white)
 
 # Data Analysis and Plotting Tools
-This repository contains a collection of tools and libraries for data set analysis and visualization in Python.
+This repository contains a collection of tools for data set analysis and visualization in Python.
+The documentation has been configured through Sphinx and GitHub Pages, while testing has been conducted using pytest and tox.
 
 ## Install
 Clone the repository:
@@ -23,11 +24,10 @@ python usage_example.py
 ```
 
 ## Usage
-The aim of the tools is to facilitate the general analysis of data sets and plotting.
-It's best to follow the documentation on the website and the examples given.
+The primary objective of these tools is to streamline the overall process of analyzing data sets and creating plots. For optimal utilization, it is recommended to refer to the documentation available on the website and to explore the provided examples.
 
 ## Contributing
-This project is not being actively developed. No contribution is necessary. Feel free to fork.
+Your contributions are not required. You're welcome to fork the repository as you see fit.
 
 ## License 
-MIT license is valid here.
+The MIT license applies to this repository.

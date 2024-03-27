@@ -20,7 +20,7 @@ class AnalysisTool:
         Parameters
         ----------
         city_name : str
-            Name to give the dataset.
+            Name to give the data set.
         pandas_data_frame : pd.DataFrame
             Pandas DataFrame to be analyzed.
 

@@ -8,6 +8,7 @@ from data_analysis_plotting_tools.PlottingTool import PlottingTool
 
 
 
+# create preprocessed data sets
 
 columns_to_drop = ['Unnamed: 0',
                    'temperature_2m_mean',
@@ -39,7 +40,7 @@ all_summaries = []
 
 for file in filenames:
     df = pd.read_csv('historical_weather_data/raw_data/'+file)
-    analysis_tool = AnalysisTool('xyz', df)
+    analysis_tool = AnalysisTool('foo', df)
     analysis_tool.preprocess_data_set(columns_to_drop, columns_to_check, disable_feedback=True)
     all_preprocessed.append(analysis_tool.get_data_frame())
     all_summaries.append(analysis_tool.get_statistical_summary())
@@ -60,6 +61,7 @@ def test_preprocessed(summary):
 
 
 
+# run tests using preprocessed data sets
 
 @pytest.mark.parametrize("example_data_frame", [(df) for df in all_preprocessed])
 def test_plot_data(example_data_frame):
@@ -67,7 +69,7 @@ def test_plot_data(example_data_frame):
     plotting_tool = PlottingTool()
 
     # Call the add_data_set method to add the data set
-    plotting_tool.add_data_set('xyz', example_data_frame, disable_feedback=True)
+    plotting_tool.add_data_set('foo', example_data_frame, disable_feedback=True)
 
     target_variable = 'precipitation_sum'
 
@@ -75,13 +77,9 @@ def test_plot_data(example_data_frame):
                            'temperature_2m_min',
                            'daylight_duration']
 
-    # Call the plot_data method
-    model_summary = plotting_tool.get_regression_model_summary('xyz', target_variable, predictor_variables,
+    # Get the model summary
+    model_summary = plotting_tool.get_regression_model_summary('foo', target_variable, predictor_variables,
                                                                disable_feedback=True, disable_plotting=True)
 
     # Perform assertions on the results
     assert isinstance(model_summary, statsmodels.iolib.summary.Summary)
-
-    # # Additional assertions for the plot characteristics
-    # assert len(axs.get_legend().get_texts()) == 2  # Expecting two legend items
-

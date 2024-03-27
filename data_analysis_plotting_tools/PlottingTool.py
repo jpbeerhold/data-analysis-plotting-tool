@@ -1,5 +1,5 @@
 
-"""Module to plot the dataset."""
+"""Module to plot the data set."""
 
 import sys
 import random
@@ -65,7 +65,7 @@ class PlottingTool:
             return False
 
     def add_data_set(self,
-                     df_name_declaration: str,
+                     df_name: str,
                      data_frame: pd.DataFrame,
                      disable_feedback: bool = False) -> None:
         """
@@ -73,7 +73,9 @@ class PlottingTool:
         
         Parameters
         ----------
-        data_set : pd.DataFrame
+        df_name : str
+            Name to give the data set.
+        data_frame : pd.DataFrame
             Data set as pandas DataFrame.
         disable_feedback : bool
             Decide whether a confirmation message should be displayed or not.
@@ -83,7 +85,7 @@ class PlottingTool:
         None.
 
         """
-        self.all_data_sets[df_name_declaration] = data_frame
+        self.all_data_sets[df_name] = data_frame
         if not disable_feedback:
             print('Data set added!')
             print(data_frame.head())
@@ -95,7 +97,7 @@ class PlottingTool:
         
         Parameters
         ----------
-        dataset : dict
+        data_frames : dict
             Specifies the data sets and columns to use. First mentioned column will be on x-axis.
             Columns specified as x-axis must be exactly the same.
                 Example:
@@ -238,7 +240,7 @@ class PlottingTool:
                                  df_name: str,
                                  numeric_variables: list[str]) -> None:
         """
-        Plot a correlation heatmap using the numeric variables in the dataset. 
+        Plot a correlation heatmap using the numeric variables in the data set. 
         
         Parameters
         ----------

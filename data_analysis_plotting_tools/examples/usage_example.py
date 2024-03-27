@@ -1,22 +1,23 @@
 
-# Using the pandas module is mandatory
-import pandas as pd
-
-# Importing tools and data set according to the folder structure
 import sys
 sys.path.append("..")
 
+# Using the pandas module is mandatory
+import pandas as pd
 
-
-
-
-
-
+# Importing tools
 from AnalysisTool import AnalysisTool
+from PlottingTool import PlottingTool
+
+
+
+
+
+
 
 
 # Convert Berlin data set to pandas DataFrame
-df_berlin = pd.read_csv('../../historical_weather_data/raw_data/berlin_2020-01-01_2024-01-27.csv')
+df_berlin = pd.read_csv('berlin_2020-01-01_2024-01-27.csv')
 
 
 # Create object
@@ -68,7 +69,7 @@ print(summary)
 
 
 
-from PlottingTool import PlottingTool
+
 
 
 # Create object
@@ -88,12 +89,12 @@ plotting_tool.plot_interactive({
     df_name_berlin: ['date', 'temperature_2m_max'],
     df_name_berlin_2: ['date', 'rain_sum']})
 
-plotting_tool.plot_univariate_graphs(df_name_berlin, number_columns_unvariate_graphs=4)
+plotting_tool.plot_univariate_graphs(df_name_berlin, number_columns_unvariate_graphs=3)
 
 
 # In this example the columns used for plotting bivariate graphs
 # are the same as the ones to keep
-# plotting_tool.plot_bivariate_graphs(df_name_berlin, numeric_variables=columns_to_check)
+plotting_tool.plot_bivariate_graphs(df_name_berlin, numeric_variables=columns_to_check)
 
 plotting_tool.plot_correlation_heatmap(df_name_berlin, numeric_variables=columns_to_check)
 
@@ -107,6 +108,6 @@ predictor_variables = ['temperature_2m_max',
                        'daylight_duration']
 
 regression_model_summary = plotting_tool.get_regression_model_summary(df_name_berlin, target_variable, predictor_variables, disable_feedback=True)
-print(type(regression_model_summary))
+print(regression_model_summary)
 
 

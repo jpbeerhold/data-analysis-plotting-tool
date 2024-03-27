@@ -33,21 +33,20 @@ exclude_patterns = []
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#options-for-html-output
 
 html_theme = 'sphinx_book_theme'
-html_title = 'Example Project'
-html_static_path = ['_static']
+html_title = 'Data Analysis Plotting Tools'
 
 
-# # do not execute jupyter notebooks when building docs
-# nb_execution_mode = "off"
+# do not execute jupyter notebooks when building docs
+nb_execution_mode = "off"
 
-# # download notebooks as .ipynb and not as .ipynb.txt
-# html_sourcelink_suffix = ""
+# download notebooks as .ipynb and not as .ipynb.txt
+html_sourcelink_suffix = ""
 
-# import os
-# suppress_warnings = [
-#     f"autosectionlabel._examples/{filename.split('.')[0]}"
-#     for filename in os.listdir("notebooks/")
-#     if os.path.isfile(os.path.join("notebooks/", filename))
-# ]  # Avoid duplicate label warnings for Jupyter notebooks.
+import os
+suppress_warnings = [
+    f"autosectionlabel._examples/{filename.split('.')[0]}"
+    for filename in os.listdir("notebooks/")
+    if os.path.isfile(os.path.join("notebooks/", filename))
+]  # Avoid duplicate label warnings for Jupyter notebooks.
 
-# remove_from_toctrees = ["_autosummary/*"]
+remove_from_toctrees = ["_autosummary/*"]
