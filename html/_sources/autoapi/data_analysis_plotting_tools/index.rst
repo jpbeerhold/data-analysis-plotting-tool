@@ -10,6 +10,6 @@ Submodules
    :titlesonly:
    :maxdepth: 1
 
-   Bool/index.rst
+   AnalysisTool/index.rst
 
 
