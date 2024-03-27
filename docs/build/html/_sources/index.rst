@@ -14,7 +14,6 @@ Welcome to Data Analysis Plotting Tools' documentation!
    :caption: Contents:
 
    Home <self>
-   API <modules>
 
 
 
