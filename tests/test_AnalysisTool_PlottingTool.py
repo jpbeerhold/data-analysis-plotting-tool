@@ -8,7 +8,7 @@ from data_analysis_plotting_tools.PlottingTool import PlottingTool
 
 
 
-# create preprocessed data sets
+# Create preprocessed data sets
 
 columns_to_drop = ['Unnamed: 0',
                    'temperature_2m_mean',
@@ -33,31 +33,37 @@ columns_to_check = ['weather_code',
                     'snowfall_sum',
                     'precipitation_hours']
 
+# Read all file names in directory
 filenames = next(walk('historical_weather_data/raw_data/'), (None, None, []))[2]
 
+# Create lists to collect results
 all_preprocessed = []
 all_summaries = []
 
 for file in filenames:
+    # Read from every file
     df = pd.read_csv('historical_weather_data/raw_data/'+file)
+
+    # Initialize the AnalysisTool class
     analysis_tool = AnalysisTool('foo', df)
+
+    # Preprocess data sets and append results
     analysis_tool.preprocess_data_set(columns_to_drop, columns_to_check, disable_feedback=True)
     all_preprocessed.append(analysis_tool.get_data_frame())
     all_summaries.append(analysis_tool.get_statistical_summary())
 
 
-
+# Run tests on results
 
 @pytest.mark.parametrize("preprocessed_data_frame", [(df) for df in all_preprocessed])
 def test_preprocessed(preprocessed_data_frame):
     assert isinstance(preprocessed_data_frame, pd.DataFrame)
 
 
-
-
 @pytest.mark.parametrize("summary", [(s) for s in all_summaries])
 def test_preprocessed(summary):
     assert isinstance(summary, pd.DataFrame)
+
 
 
 
