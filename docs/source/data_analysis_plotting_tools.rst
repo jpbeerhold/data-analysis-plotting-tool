@@ -1,4 +1,4 @@
-Data Analysis Plotting Tools
+data_analysis_plotting_tools
 ============================
 
 data_analysis_plotting_tools.AnalysisTool module

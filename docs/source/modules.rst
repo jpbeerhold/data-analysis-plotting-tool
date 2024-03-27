@@ -1,3 +1,6 @@
+data_analysis_plotting_tools
+============================
+
 .. toctree::
    :maxdepth: 4
 

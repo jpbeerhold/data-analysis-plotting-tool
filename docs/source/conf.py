@@ -35,6 +35,7 @@ exclude_patterns = []
 
 html_theme = 'sphinx_book_theme'
 html_title = 'Data Analysis Plotting Tools'
+html_static_path = ['_static']
 
 
 # do not execute jupyter notebooks when building docs
