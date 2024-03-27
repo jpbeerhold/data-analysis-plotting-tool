@@ -1,4 +1,4 @@
-data_analysis_plotting_tools
+Data Analysis Plotting Tools
 ============================
 
 .. toctree::

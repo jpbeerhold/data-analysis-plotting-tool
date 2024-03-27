@@ -1,26 +1,14 @@
-data_analysis_plotting_tools
+Data Analysis Plotting Tools
 ============================
 
-data_analysis_plotting_tools.AnalysisTool module
-------------------------------------------------
+AnalysisTool
+------------
 
 .. automodule:: data_analysis_plotting_tools.AnalysisTool
    :members:
-   :undoc-members:
-   :show-inheritance:
 
-data_analysis_plotting_tools.PlottingTool module
-------------------------------------------------
+PlottingTool
+------------
 
 .. automodule:: data_analysis_plotting_tools.PlottingTool
    :members:
-   :undoc-members:
-   :show-inheritance:
-
-Module contents
----------------
-
-.. automodule:: data_analysis_plotting_tools
-   :members:
-   :undoc-members:
-   :show-inheritance:
