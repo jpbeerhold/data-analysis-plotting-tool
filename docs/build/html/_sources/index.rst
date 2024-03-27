@@ -3,15 +3,6 @@
    You can adapt this file completely to your liking, but it should at least
    contain the root `toctree` directive.
 
-.. raw:: html
-
-    <style>
-    .small-header {
-        font-size: 0.6em;
-    }
-    </style>
-
-
 
 
 Welcome to Data Analysis Plotting Tools' documentation!
@@ -47,24 +38,32 @@ The repository contains a collection of Python scripts, modules, and notebooks d
 
 
 
-.. _small-header:
+.. raw:: html
+
+    <style>
+    .small-header {
+        font-size: 0.6em;
+    }
+    </style>
 
 Analysis modules
 ~~~~~~~~~~~~~~~~
-
-.. container:: small-header
 
 In addition to plotting functionalities, the repository houses modules dedicated to data analysis. These modules are designed to facilitate various data manipulation and statistical analysis tasks. These analysis modules aim to assist users in deriving meaningful insights and patterns from the data through quantitative analysis techniques.
 
 
 
 
-.. _small-header:
+.. raw:: html
+
+    <style>
+    .small-header {
+        font-size: 0.6em;
+    }
+    </style>
 
 Plotting modules
 ~~~~~~~~~~~~~~~~
-
-.. container:: small-header
 
 The repository includes modules specifically focused on plotting data. These modules offer functions and utilities optimized for generating various types of plots, such as line plots, scatter plots, histograms, and more.
 
@@ -77,48 +76,64 @@ Steps taken
 
 
 
-.. _small-header:
+.. raw:: html
+
+    <style>
+    .small-header {
+        font-size: 0.6em;
+    }
+    </style>
 
 Repository Setup
 ~~~~~~~~~~~~~~~~
-
-.. container:: small-header
 
 The project began with the creation of the GitHub repository "data-analysis-plotting-tools," where the initial project structure was established.
 
 
 
 
-.. _small-header:
+.. raw:: html
+
+    <style>
+    .small-header {
+        font-size: 0.6em;
+    }
+    </style>
 
 Tool Development
 ~~~~~~~~~~~~~~~~
-
-.. container:: small-header
 
 The project progressed with the development of various data analysis and plotting tools. This involved writing Python scripts, modules, and utilities to address specific data-related tasks.
 
 
 
 
-.. _small-header:
+.. raw:: html
+
+    <style>
+    .small-header {
+        font-size: 0.6em;
+    }
+    </style>
 
 Testing and Validation
 ~~~~~~~~~~~~~~~~~~~~~~
-
-.. container:: small-header
 
 Throughout the development process, rigorous testing and validation were conducted to ensure the reliability and effectiveness of the tools.
 
 
 
 
-.. _small-header:
+.. raw:: html
+
+    <style>
+    .small-header {
+        font-size: 0.6em;
+    }
+    </style>
 
 Documentation
 ~~~~~~~~~~~~~
-
-.. container:: small-header
 
 Comprehensive documentation was created to guide users on how to install, configure, and utilize the tools effectively. This documentation includes API references and usage examples.
 
