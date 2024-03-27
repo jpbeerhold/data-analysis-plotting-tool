@@ -30,6 +30,8 @@ extensions = [
 
 autoapi_dirs = ['../../data_analysis_plotting_tools']
 
+autoapi_ignore = ["*/example.ipynb", "*/usage_example.py"]
+
 templates_path = ['_templates']
 exclude_patterns = []
 
