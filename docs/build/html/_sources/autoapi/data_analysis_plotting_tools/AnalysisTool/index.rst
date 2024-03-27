@@ -52,9 +52,9 @@ Classes
       
       Specify the columns to be dropped based on the statistical summary.
 
-      :param columns_to_drop: Explanation here.
+      :param columns_to_drop: Choose which numeric variables to remove.
       :type columns_to_drop: list[str]
-      :param columns_to_check: Explanation here.
+      :param columns_to_check: Choose which numeric variables to analyze.
       :type columns_to_check: list[str]
       :param create_file: Whether to create a csv file of the preprocessed data set or not.
       :type create_file: bool
@@ -82,12 +82,75 @@ Classes
 
    .. py:method:: _clean_and_preprocess() -> None
 
+      
+      Private Method.
+      Cleans the data set.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+      ..
+          !! processed by numpydoc !!
 
    .. py:method:: _remove_outliers() -> None
 
+      
+      Private Method.
+      Removes outliers in the data set.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+      ..
+          !! processed by numpydoc !!
 
    .. py:method:: _fix_inconsistencies() -> None
 
+      
+      Private Method.
+      Fixes inconsistent values in the data set.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+      ..
+          !! processed by numpydoc !!
 
    .. py:method:: get_statistical_summary() -> pandas.DataFrame
 

@@ -47,9 +47,9 @@ class AnalysisTool:
         Parameters
         ----------
         columns_to_drop : list[str]
-            Explanation here.
+            Choose which numeric variables to remove.
         columns_to_check : list[str]
-            Explanation here.
+            Choose which numeric variables to analyze.
         create_file : bool
             Whether to create a csv file of the preprocessed data set or not.
         disable_feedback : bool
@@ -73,8 +73,10 @@ class AnalysisTool:
         self._clean_and_preprocess()
 
     def _clean_and_preprocess(self) -> None:
-        # Private Method.
-        # Cleans the data set.
+        """
+        Private Method.
+        Cleans the data set.
+        """
         
         # Drop specified columns
         self.pandas_df.drop(columns=self.columns_to_drop, axis=1, inplace=True)
@@ -87,8 +89,10 @@ class AnalysisTool:
             self.pandas_df.to_csv(f'{self.city_name}_cleaned_data.csv', index=False)
 
     def _remove_outliers(self) -> None:
-        # Private Method.
-        # Removes outliers in the data set.
+        """
+        Private Method.
+        Removes outliers in the data set.
+        """
 
         for column in self.columns_to_check:
             q1 = self.pandas_df[column].quantile(0.25)
@@ -108,8 +112,10 @@ class AnalysisTool:
             print(self.pandas_df.head())
 
     def _fix_inconsistencies(self) -> None:
-        # Private Method.
-        # Fixes inconsistent values in the data set.
+        """
+        Private Method.
+        Fixes inconsistent values in the data set.
+        """
 
         missing_values_summary = self.pandas_df[self.columns_to_check].isnull().sum()
 

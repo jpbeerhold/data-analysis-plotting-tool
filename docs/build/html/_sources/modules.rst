@@ -5,3 +5,4 @@ API
    :maxdepth: 4
 
    data_analysis_plotting_tools.AnalysisTool
+   data_analysis_plotting_tools.PlottingTool
