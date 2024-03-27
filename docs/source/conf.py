@@ -44,7 +44,8 @@ nb_execution_mode = "off"
 # download notebooks as .ipynb and not as .ipynb.txt
 html_sourcelink_suffix = ""
 
-import os
+import os, sys
+sys.path.insert(0, os.path.abspath(os.path.join('..', '..', 'src')))
 suppress_warnings = [
     f"autosectionlabel._examples/{filename.split('.')[0]}"
     for filename in os.listdir("notebooks/")

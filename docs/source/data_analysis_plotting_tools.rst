@@ -1,7 +1,7 @@
 Data Analysis Plotting Tools
 ============================
 
-.. automodule:: data_analysis_plotting_tools
+.. automodule:: AnalysisTool
    :imported-members:
    :members:
    :undoc-members:
