@@ -32,7 +32,7 @@ extensions = [
 templates_path = ['_templates']
 exclude_patterns = []
 
-numpydoc_class_members_toctree = False
+# numpydoc_class_members_toctree = False
 
 # -- Options for HTML output -------------------------------------------------
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#options-for-html-output
