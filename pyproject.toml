@@ -1,7 +1,7 @@
 [project]
 name = "data-analysis-plotting-tools"
 version = "0.0.1"
-description = "Tools to simplify data analysis and plotting."
+description = "Tools to facilitate data analysis and plotting."
 
 [build-system]
 build-backend = "flit_core.buildapi"

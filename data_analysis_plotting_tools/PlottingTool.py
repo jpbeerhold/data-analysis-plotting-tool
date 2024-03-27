@@ -264,7 +264,7 @@ class PlottingTool:
                                      target_variable: str,
                                      predictor_variables: list[str],
                                      disable_feedback: bool = False,
-                                     disable_plotting: bool = False) -> None:
+                                     disable_plotting: bool = False):
         """
         Plot a regression model based on variables to be studied. 
         
@@ -283,7 +283,7 @@ class PlottingTool:
   
         Returns
         -------
-        None.
+        Model summary.
 
         """
 

@@ -21,7 +21,7 @@ df_berlin = pd.read_csv('../../historical_weather_data/raw_data/berlin_2020-01-0
 
 # Create object
 df_name_berlin = 'berlin'
-DA = AnalysisTool(df_name_berlin, df_berlin)
+analysis_tool = AnalysisTool(df_name_berlin, df_berlin)
 
 
 # Decide which columns NOT to use
@@ -52,14 +52,14 @@ columns_to_check = ['weather_code',
 
 
 # Preprocess the data set to be used for plotting later
-DA.preprocess_data_set(columns_to_drop, columns_to_check, create_file=False, disable_feedback=True)
+analysis_tool.preprocess_data_set(columns_to_drop, columns_to_check, disable_feedback=True)
 
 
-preprocessed_df = DA.get_data_frame()
+preprocessed_df = analysis_tool.get_data_frame()
 print(preprocessed_df)
 
 
-summary = DA.get_statistical_summary()
+summary = analysis_tool.get_statistical_summary()
 print(summary)
 
 
@@ -72,30 +72,30 @@ from PlottingTool import PlottingTool
 
 
 # Create object
-PT = PlottingTool()
+plotting_tool = PlottingTool()
 
 
 # Add preprocessed pandas DataFrame from before
-PT.add_data_set(df_name_berlin, preprocessed_df, disable_feedback=True)
+plotting_tool.add_data_set(df_name_berlin, preprocessed_df, disable_feedback=True)
 
 # Add a second time for plotting
 df_name_berlin_2 = df_name_berlin+'_2'
-PT.add_data_set(df_name_berlin_2, preprocessed_df, disable_feedback=True)
+plotting_tool.add_data_set(df_name_berlin_2, preprocessed_df, disable_feedback=True)
 
 ## Plot added pandas DataFrames in various ways
 
-PT.plot_interactive({
+plotting_tool.plot_interactive({
     df_name_berlin: ['date', 'temperature_2m_max'],
     df_name_berlin_2: ['date', 'rain_sum']})
 
-PT.plot_univariate_graphs(df_name_berlin, number_columns_unvariate_graphs=4)
+plotting_tool.plot_univariate_graphs(df_name_berlin, number_columns_unvariate_graphs=4)
 
 
 # In this example the columns used for plotting bivariate graphs
 # are the same as the ones to keep
-PT.plot_bivariate_graphs(df_name_berlin, numeric_variables=columns_to_check)
+# plotting_tool.plot_bivariate_graphs(df_name_berlin, numeric_variables=columns_to_check)
 
-PT.plot_correlation_heatmap(df_name_berlin, numeric_variables=columns_to_check)
+plotting_tool.plot_correlation_heatmap(df_name_berlin, numeric_variables=columns_to_check)
 
 
 # Create a regression model 
@@ -106,7 +106,7 @@ predictor_variables = ['temperature_2m_max',
                        'temperature_2m_min', 
                        'daylight_duration']
 
-regression_model_summary = PT.get_regression_model_summary(df_name_berlin, target_variable, predictor_variables, disable_feedback=True)
-print(regression_model_summary)
+regression_model_summary = plotting_tool.get_regression_model_summary(df_name_berlin, target_variable, predictor_variables, disable_feedback=True)
+print(type(regression_model_summary))
 
 
