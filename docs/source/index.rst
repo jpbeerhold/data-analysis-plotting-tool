@@ -15,7 +15,6 @@ Welcome to Data Analysis Plotting Tools' documentation!
 
    Home <self>
    API <modules>
-   Example <notebooks/example>
 
 
 

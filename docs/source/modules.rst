@@ -1,8 +1,7 @@
-Data Analysis Plotting Tools
-============================
+API
+===
 
 .. toctree::
    :maxdepth: 4
 
-   AnalysisTool
-   PlottingTool
+   Bool

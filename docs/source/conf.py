@@ -18,6 +18,7 @@ release = '0.0.1'
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#general-configuration
 
 extensions = [
+    "sphinx.ext.napoleon",
     "sphinx.ext.autodoc",     # Support automatic documentation
     "sphinx.ext.coverage",    # Automatically check if functions are documented
     "sphinx.ext.mathjax",     # Allow support for algebra
@@ -31,7 +32,7 @@ extensions = [
 templates_path = ['_templates']
 exclude_patterns = []
 
-
+numpydoc_class_members_toctree = False
 
 # -- Options for HTML output -------------------------------------------------
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#options-for-html-output
@@ -40,16 +41,16 @@ html_theme = 'sphinx_book_theme'
 html_title = 'Data Analysis Plotting Tools'
 
 
-# do not execute jupyter notebooks when building docs
-nb_execution_mode = "off"
+# # do not execute jupyter notebooks when building docs
+# nb_execution_mode = "off"
 
-# download notebooks as .ipynb and not as .ipynb.txt
-html_sourcelink_suffix = ""
+# # download notebooks as .ipynb and not as .ipynb.txt
+# html_sourcelink_suffix = ""
 
-suppress_warnings = [
-    f"autosectionlabel._examples/{filename.split('.')[0]}"
-    for filename in os.listdir("notebooks/")
-    if os.path.isfile(os.path.join("notebooks/", filename))
-]  # Avoid duplicate label warnings for Jupyter notebooks.
+# suppress_warnings = [
+#     f"autosectionlabel._examples/{filename.split('.')[0]}"
+#     for filename in os.listdir("notebooks/")
+#     if os.path.isfile(os.path.join("notebooks/", filename))
+# ]  # Avoid duplicate label warnings for Jupyter notebooks.
 
-remove_from_toctrees = ["_autosummary/*"]
+# remove_from_toctrees = ["_autosummary/*"]
