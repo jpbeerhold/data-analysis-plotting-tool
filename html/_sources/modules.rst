@@ -4,4 +4,4 @@ API
 .. toctree::
    :maxdepth: 4
 
-   Bool
+   data_analysis_plotting_tools.Bool
