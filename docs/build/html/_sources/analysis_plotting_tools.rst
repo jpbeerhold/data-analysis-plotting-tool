@@ -16,3 +16,11 @@ data_analysis_plotting_tools.PlottingTool module
    :members:
    :undoc-members:
    :show-inheritance:
+
+Module contents
+---------------
+
+.. automodule:: data_analysis_plotting_tools
+   :members:
+   :undoc-members:
+   :show-inheritance:

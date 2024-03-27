@@ -24,6 +24,7 @@ extensions = [
     "myst_nb",                # For compiling Jupyter Notebooks into high quality documentation formats  
 ]
 
+
 templates_path = ['_templates']
 exclude_patterns = []
 
@@ -49,4 +50,4 @@ suppress_warnings = [
     if os.path.isfile(os.path.join("notebooks/", filename))
 ]  # Avoid duplicate label warnings for Jupyter notebooks.
 
-# remove_from_toctrees = ["_autosummary/*"]
+remove_from_toctrees = ["_autosummary/*"]
