@@ -1,5 +1,5 @@
 
-"""Module to simplify data set analysis."""
+"""Tool to facilitate data set analysis."""
 
 import pandas as pd
 
@@ -8,7 +8,7 @@ pd.options.mode.chained_assignment = None # disable warning
 
 
 class AnalysisTool:
-    """Tool to simplify data set analysis."""
+    """Tool to facilitate data set analysis."""
 
     def __init__(self,
                  city_name: str,

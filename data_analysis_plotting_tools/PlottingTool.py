@@ -1,5 +1,5 @@
 
-"""Module to plot the data set."""
+"""Tool to simplify data set plotting."""
 
 import sys
 import random
