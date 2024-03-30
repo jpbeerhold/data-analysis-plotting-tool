@@ -5,7 +5,7 @@
 
 .. autoapi-nested-parse::
 
-   Module to simplify data set analysis.
+   Tool to facilitate data set analysis.
 
    ..
        !! processed by numpydoc !!
@@ -28,7 +28,7 @@ Classes
 
 
    
-   Tool to simplify data set analysis.
+   Tool to facilitate data set analysis.
 
 
 
