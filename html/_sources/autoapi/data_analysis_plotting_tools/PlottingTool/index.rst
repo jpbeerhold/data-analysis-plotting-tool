@@ -5,7 +5,7 @@
 
 .. autoapi-nested-parse::
 
-   Tool to simplify data set plotting.
+   Tool to facilitate data set plotting.
 
    ..
        !! processed by numpydoc !!
@@ -28,7 +28,7 @@ Classes
 
 
    
-   Tool to simplify data set plotting.
+   Tool to facilitate data set plotting.
 
 
 
