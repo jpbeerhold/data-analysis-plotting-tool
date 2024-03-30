@@ -1,5 +1,5 @@
 
-"""Tool to simplify data set plotting."""
+"""Tool to facilitate data set plotting."""
 
 import sys
 import random
@@ -22,10 +22,10 @@ pd.options.mode.chained_assignment = None # disable warning
 
 
 class PlottingTool:
-    """Tool to simplify data set plotting."""
+    """Tool to facilitate data set plotting."""
 
     def __init__(self) -> None:
-        """Tool to simplify data set plotting.
+        """Tool to facilitate data set plotting.
 
         Parameters
         ----------
