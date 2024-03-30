@@ -5,7 +5,7 @@
 
 .. autoapi-nested-parse::
 
-   Module to plot the data set.
+   Tool to simplify data set plotting.
 
    ..
        !! processed by numpydoc !!
