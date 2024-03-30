@@ -87,5 +87,5 @@ def test_plot_data(example_data_frame):
     model_summary = plotting_tool.get_regression_model_summary('foo', target_variable, predictor_variables,
                                                                disable_feedback=True, disable_plotting=True)
 
-    # Perform assertions on the results
+    # Perform assertion on the result
     assert isinstance(model_summary, statsmodels.iolib.summary.Summary)
